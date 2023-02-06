@@ -1,0 +1,2 @@
+# CashReceipt
+Printing receipt
