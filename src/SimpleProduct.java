@@ -1,22 +1,18 @@
-public class SimpleProduct implements Product {
-    
-    @Override
-    public int getID() {
-        return 0;
+public class SimpleProduct extends Product {
+
+
+    public SimpleProduct(int idOfProduct, String nameOfProduct, double priceOfProduct, int amountOfProduct) {
+        super(idOfProduct, nameOfProduct, priceOfProduct, amountOfProduct);
     }
 
     @Override
-    public String getNameOfProduct() {
-        return null;
+    public double totalPriceOfProduct() {
+        return priceOfProduct * amountOfProduct;
     }
 
     @Override
-    public double getPriceOfProduct() {
-        return 0;
-    }
-
-    @Override
-    public Actions getAction() {
-        return null;
+    public String toString() {
+        return amountOfProduct  + " " + nameOfProduct + " $" + priceOfProduct +
+                " $" + totalPriceOfProduct();
     }
 }

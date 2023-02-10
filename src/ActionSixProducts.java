@@ -3,6 +3,8 @@ public class ActionSixProducts implements Actions {
     double percents = 0.1;
      int countOfProduct = 6;
 
+
+
     @Override
     public String getNameOfAction() {
         return this.nameOfAction;
