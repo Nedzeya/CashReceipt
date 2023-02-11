@@ -18,8 +18,7 @@ public class Main {
         StringBuilder sb = new StringBuilder("\n");
         for (Map.Entry<Integer, Product> entry : productMap.entrySet()) {
             Product value = entry.getValue();
-           sb.append(value)
-
+            sb.append(value)
                     .append("\n");
 
         }

@@ -37,13 +37,13 @@ public class Basket {
     @Override
     public String toString (){
 
-        Set<Integer> keys = productMap.keySet();
-
-        for (Integer key : keys) {
-       return productMap.get(key).toString();
+        StringBuilder sb = new StringBuilder("\n");
+        for (Map.Entry<Integer, Product> entry : productMap.entrySet()) {
+            Product value = entry.getValue();
+            sb.append(value)
+                    .append("\n");
         }
-
-        return null;
+        return sb.toString();
     }
 
 

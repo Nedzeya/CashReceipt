@@ -17,23 +17,26 @@ public class ActionProduct extends Product {
 
     @Override
     protected double totalPriceOfProduct() {
-        if (amountOfProduct > 5) {
-            return priceOfProduct * amountOfProduct * 0.9;
+        if (getAmountOfProduct() > 5) {
+            return getPriceOfProduct() * getAmountOfProduct() * 0.9;
         } else {
-            return priceOfProduct * amountOfProduct;
+            return getPriceOfProduct() * getAmountOfProduct();
         }
+
+
     }
 
     @Override
     public String toString() {
+        double totalPriceOfPrWithoutAct = getPriceOfProduct() * getAmountOfProduct();
+        double sumOfAction = totalPriceOfPrWithoutAct-totalPriceOfProduct();
         if (amountOfProduct > 5) {
-            return amountOfProduct + " %-10s" + nameOfProduct + " %-10s$" + priceOfProduct +
-                    " %-10s$" + totalPriceOfProduct() * 1.1 +
-                    "%n%-30 -" + ((totalPriceOfProduct() * 1.1) - totalPriceOfProduct())
-                    + "%n%-30" + totalPriceOfProduct();
+            return String.format("%-3x %-20s $%-8.2f %-8.2f\n %35s%.2f\n %34s%.2f ", amountOfProduct, nameOfProduct,
+                    priceOfProduct, totalPriceOfPrWithoutAct,"-",sumOfAction,"$",totalPriceOfProduct());
+
         } else {
-            return amountOfProduct + " %-10s" + nameOfProduct + " %-10s$" + priceOfProduct +
-                    " %-10s$" + totalPriceOfProduct();
+            return String.format("%-3x %-20s $%-8.2f $%-8.2f\n ", amountOfProduct, nameOfProduct,
+                    priceOfProduct, totalPriceOfProduct());
         }
     }
 }

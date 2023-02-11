@@ -12,7 +12,7 @@ public class SimpleProduct extends Product {
 
     @Override
     public String toString() {
-        return amountOfProduct  + " " + nameOfProduct + " $" + priceOfProduct +
-                " $" + totalPriceOfProduct();
+        return String.format("%-3x %-20s $%-8.2f $%-8.2f\n ", amountOfProduct, nameOfProduct,
+                priceOfProduct, totalPriceOfProduct());
     }
 }
