@@ -2,7 +2,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public interface HeardOfReceipt {
+public class HeardOfReceipt {
     String nameOfReceipt = "CASH RECEIPT";
     String nameOfShop = "SUPERMARKET 123";
     String addressOfShop = "12, MILKYWAY Galaxy/Earth";
@@ -15,4 +15,10 @@ public interface HeardOfReceipt {
     SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
     String time = "TIME: "+ timeFormat.format(new Date());
 
+
+    @Override
+    public String toString() {
+        return String.format("%35S\n %35s\n %40s\n %35s\n %-35S %S\n %50S",
+                nameOfReceipt,nameOfShop,addressOfShop, telephone,cashierNumber,date,time);
+    }
 }
