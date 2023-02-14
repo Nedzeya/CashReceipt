@@ -18,31 +18,28 @@ public class Basket {
         return result;
     }
 
-    boolean addProduct (Product product) {
-
-        if (product.isEmpty()) {
-            return false;
-        }
-        if (productMap.containsKey(product.getIdOfProduct())) {
-            Product previousProduct = productMap.get(product.getIdOfProduct());
-            previousProduct.setAmountOfProduct(previousProduct.getAmountOfProduct() + product.getAmountOfProduct());
-
-            productMap.replace(product.getIdOfProduct(), previousProduct);
-        } else {
-            productMap.put(product.getIdOfProduct(), product);
-        }
-        return true;
+    String TaxableTotal (){
+        return String.format ("%-35S $%.2f","TAXABLE TOT.");
     }
+    void addProduct (Product product) {
 
+            if (productMap.containsKey(product.getIdOfProduct())) {
+                Product previousProduct = productMap.get(product.getIdOfProduct());
+                previousProduct.setAmountOfProduct(previousProduct.getAmountOfProduct() + product.getAmountOfProduct());
+
+                productMap.replace(product.getIdOfProduct(), previousProduct);
+            } else {
+                productMap.put(product.getIdOfProduct(), product);
+            }
+               }
+               
     @Override
     public String toString (){
 
-        StringBuilder sb = new StringBuilder("\n");
-        for (Map.Entry<Integer, Product> entry : productMap.entrySet()) {
-            Product value = entry.getValue();
-            sb.append(value)
-                    .append("\n");
-        }
+        StringBuilder sb = new StringBuilder(" ");
+        for (Integer key : productMap.keySet()) {
+            sb.append(productMap.get(key));
+              }
         return sb.toString();
     }
 

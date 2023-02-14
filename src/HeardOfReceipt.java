@@ -18,7 +18,7 @@ public class HeardOfReceipt {
 
     @Override
     public String toString() {
-        return String.format("%35S\n %35s\n %40s\n %35s\n %-35S %S\n %50S",
-                nameOfReceipt,nameOfShop,addressOfShop, telephone,cashierNumber,date,time);
+        return String.format("%35S\n %35s\n %40s\n %35s\n %-35S %S\n %50S\n %s",
+                nameOfReceipt,nameOfShop,addressOfShop, telephone,cashierNumber,date,time, "__________________________________");
     }
 }
