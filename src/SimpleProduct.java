@@ -7,6 +7,7 @@ public class SimpleProduct extends Product {
 
     @Override
     public double totalPriceOfProduct() {
+
         return priceOfProduct * amountOfProduct;
     }
 

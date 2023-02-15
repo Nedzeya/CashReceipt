@@ -53,7 +53,6 @@ abstract class Product {
         Product product = (Product) object;
         return this.getIdOfProduct() == product.getIdOfProduct()
                 && Double.compare(product.getPriceOfProduct(), this.getPriceOfProduct()) == 0
-                && this.getAmountOfProduct() == product.getAmountOfProduct()
                 && Objects.equals(this.getNameOfProduct().toUpperCase(), product.getNameOfProduct().toUpperCase());
     }
 

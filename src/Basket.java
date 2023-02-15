@@ -32,7 +32,7 @@ public class Basket {
                 productMap.put(product.getIdOfProduct(), product);
             }
                }
-               
+
     @Override
     public String toString (){
 
