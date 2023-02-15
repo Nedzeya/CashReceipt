@@ -13,7 +13,8 @@ public class SimpleProduct extends Product {
 
     @Override
     public String toString() {
-        return String.format("%-3x %-20s $%-8.2f $%-8.2f\n ", amountOfProduct, nameOfProduct,
+        return String.format("%-3d %-20s $%-8.2f $%-8.2f\n ", amountOfProduct, nameOfProduct,
                 priceOfProduct, totalPriceOfProduct());
     }
+
 }

@@ -18,19 +18,19 @@ public class Basket {
         return result;
     }
 
-    String TaxableTotal (){
-        return String.format ("%-35S $%.2f","TAXABLE TOT.");
-    }
+
     void addProduct (Product product) {
 
-            if (productMap.containsKey(product.getIdOfProduct())) {
+            if (!productMap.isEmpty() && productMap.containsValue(product) ){
                 Product previousProduct = productMap.get(product.getIdOfProduct());
                 previousProduct.setAmountOfProduct(previousProduct.getAmountOfProduct() + product.getAmountOfProduct());
 
                 productMap.replace(product.getIdOfProduct(), previousProduct);
-            } else {
+         }
+            else {
                 productMap.put(product.getIdOfProduct(), product);
-            }
+
+         }
                }
 
     @Override
@@ -40,7 +40,10 @@ public class Basket {
         for (Integer key : productMap.keySet()) {
             sb.append(productMap.get(key));
               }
-        return sb.toString();
+        return String.format("%-4S %-20S %-8S %-8S\n\n","QTY","DESCRIPTION","PRICE", "TOTAL")
+                +sb.toString()+
+                "\n===========================================\n\n"+
+                String.format("%-30S %S %.2f","TOTAL","$",totalOfBasket());
     }
 
 

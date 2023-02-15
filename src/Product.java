@@ -3,14 +3,14 @@ import java.util.Objects;
 abstract class Product {
     //standard for all product
     int idOfProduct;
-    String nameOfProduct;
+  String nameOfProduct;
     double priceOfProduct;
     int amountOfProduct;
 
 
     // basic constructor
     public Product(int idOfProduct, String nameOfProduct, double priceOfProduct, int amountOfProduct) {
-        idOfProduct = idOfProduct;
+       this. idOfProduct = idOfProduct;
         this.nameOfProduct = nameOfProduct;
         this.priceOfProduct = priceOfProduct;
         this.amountOfProduct = amountOfProduct;
