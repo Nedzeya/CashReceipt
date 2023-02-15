@@ -2,15 +2,15 @@ import java.util.Objects;
 
 abstract class Product {
     //standard for all product
-    int idOfProduct;
-  String nameOfProduct;
-    double priceOfProduct;
-    int amountOfProduct;
+    private int idOfProduct;
+    private String nameOfProduct;
+    private double priceOfProduct;
+    private int amountOfProduct;
 
 
     // basic constructor
     public Product(int idOfProduct, String nameOfProduct, double priceOfProduct, int amountOfProduct) {
-       this. idOfProduct = idOfProduct;
+        this.idOfProduct = idOfProduct;
         this.nameOfProduct = nameOfProduct;
         this.priceOfProduct = priceOfProduct;
         this.amountOfProduct = amountOfProduct;
@@ -41,7 +41,7 @@ abstract class Product {
     //functions for all product types
 
 
-        public boolean isEmpty() {
+    public boolean isEmpty() {
         return nameOfProduct.isBlank() || amountOfProduct == 0;
     }
 
@@ -65,7 +65,6 @@ abstract class Product {
     public abstract String toString();
 
     protected abstract double totalPriceOfProduct();
-
 
 
 }

@@ -30,13 +30,13 @@ public class ActionProduct extends Product {
     public String toString() {
         double totalPriceOfPrWithoutAct = getPriceOfProduct() * getAmountOfProduct();
         double sumOfAction = totalPriceOfPrWithoutAct-totalPriceOfProduct();
-        if (amountOfProduct > 5) {
-            return String.format("%-3d %-20s $%-8.2f %-8.2f\n %35s%.2f\n %35s%.2f\n ", amountOfProduct, nameOfProduct,
-                    priceOfProduct, totalPriceOfPrWithoutAct,"-",sumOfAction,"$",totalPriceOfProduct());
+        if (getAmountOfProduct() > 5) {
+            return String.format("%-3d %-20s $%-8.2f %-8.2f\n %35s%.2f\n %35s%.2f\n ", getAmountOfProduct(), getNameOfProduct(),
+                    getPriceOfProduct(), totalPriceOfPrWithoutAct,"-",sumOfAction,"$",totalPriceOfProduct());
 
         } else {
-            return String.format("%-3d %-20s $%-8.2f $%-8.2f\n ", amountOfProduct, nameOfProduct,
-                    priceOfProduct, totalPriceOfProduct());
+            return String.format("%-3d %-20s $%-8.2f $%-8.2f\n ", getAmountOfProduct(), getNameOfProduct(),
+                    getPriceOfProduct(), totalPriceOfProduct());
         }
     }
 }
