@@ -1,6 +1,8 @@
-import org.junit.Test;
+package tests;
 
-import java.util.Objects;
+import org.junit.Test;
+import product.Product;
+import product.SimpleProduct;
 
 import static org.junit.Assert.*;
 

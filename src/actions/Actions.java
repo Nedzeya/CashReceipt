@@ -1,3 +1,5 @@
+package actions;
+
 public interface Actions {
     String getNameOfAction();
     double getPercents ();

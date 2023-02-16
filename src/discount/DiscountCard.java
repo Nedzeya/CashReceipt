@@ -1,5 +1,6 @@
-import java.util.HashMap;
-import java.util.Map;
+package discount;
+
+import discount.Discount;
 
 public class DiscountCard implements Discount {
     private double percentsOfDiscount;

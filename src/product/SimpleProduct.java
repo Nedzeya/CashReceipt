@@ -1,3 +1,7 @@
+package product;
+
+import product.Product;
+
 public class SimpleProduct extends Product {
 
 

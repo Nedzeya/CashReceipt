@@ -1,20 +1,21 @@
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import basket.Basket;
+import basket.DiscountCardBasket;
+import discount.Discount;
+import discount.DiscountCard;
+import product.ProductFactory;
 
 
 public class Main {
     public static void main(String[] args) {
 
         Discount discount = new DiscountCard();
-        discount.addDiscount(new DiscountCard(0.4, 1));
-        discount.addDiscount(new DiscountCard(0.1, 2));
+        discount.addDiscount(new DiscountCard(4, 1));
+        discount.addDiscount(new DiscountCard(1, 2));
 
 
         ProductFactory productFactory = new ProductFactory();
-        //Basket basket = new Basket ();
-        Basket basket = new DiscountCardBasket(new Basket(), 2);
+        //basket.Basket basket = new basket.Basket ();
+        Basket basket = new DiscountCardBasket(new Basket(), 1);
 
 
         basket.addProduct(productFactory.createActionSixProduct(555, "hhh", 888, 1));

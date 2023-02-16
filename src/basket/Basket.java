@@ -1,12 +1,17 @@
+package basket;
+
+import product.Product;
+
 import java.util.*;
 
 public class Basket {
+
     Map<Integer, Product> productMap = new HashMap<Integer, Product>();
 
     public Basket() {
     }
 
-    double totalOfBasket() {
+   public double totalOfBasket() {
 
         Set<Integer> keys = productMap.keySet();
 

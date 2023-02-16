@@ -1,5 +1,7 @@
-import java.util.HashMap;
-import java.util.Map;
+package basket;
+
+import basket.Basket;
+import discount.Discount;
 
 abstract class DecoratorDiscount extends Basket implements Discount {
 

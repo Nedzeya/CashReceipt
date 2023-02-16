@@ -1,11 +1,12 @@
-import java.util.HashMap;
-import java.util.Map;
+package basket;
+
+import discount.Discount;
 
 public class DiscountCardBasket extends DecoratorDiscount{
 
 
 Discount discount;
-    public DiscountCardBasket(Basket basket,int numberOfDiscount) {
+    public DiscountCardBasket(Basket basket, int numberOfDiscount) {
         super(basket);
 
         this.discount = discountMap.get(numberOfDiscount);
@@ -16,7 +17,7 @@ Discount discount;
     @Override
     public double totalOfBasket() {
 
-        return super.totalOfBasket()*getPercentsOfDiscount();
+        return super.totalOfBasket()*(100-getPercentsOfDiscount())/100;
     }
 
     @Override

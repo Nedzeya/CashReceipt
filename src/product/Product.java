@@ -1,6 +1,8 @@
+package product;
+
 import java.util.Objects;
 
-abstract class Product {
+public abstract class Product {
     //standard for all product
     private int idOfProduct;
     private String nameOfProduct;
@@ -64,7 +66,7 @@ abstract class Product {
     // functions for all product which need to be overridden
     public abstract String toString();
 
-    protected abstract double totalPriceOfProduct();
+    public abstract double totalPriceOfProduct();
 
 
 }

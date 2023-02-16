@@ -1,3 +1,7 @@
+package product;
+
+import actions.Actions;
+
 public class ActionProduct extends Product {
 
     Actions action;
@@ -16,7 +20,7 @@ public class ActionProduct extends Product {
     }
 
     @Override
-    protected double totalPriceOfProduct() {
+    public double totalPriceOfProduct() {
         if (getAmountOfProduct() > 5) {
             return getPriceOfProduct() * getAmountOfProduct() * 0.9;
         } else {
