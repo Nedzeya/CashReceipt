@@ -1,16 +1,18 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class DiscountCard implements Discount{
-    double percentsOfDiscount;
-    int numberOfDiscount;
-    String nameOfDiscount = "DiscountCardOfClient";
+public class DiscountCard implements Discount {
+    private double percentsOfDiscount;
+    private int numberOfDiscount;
+    private String nameOfDiscount = "DiscountCardOfClient";
+
+
+    public DiscountCard() {
+    }
 
     public DiscountCard(double percentsOfDiscount, int numberOfDiscount) {
         this.percentsOfDiscount = percentsOfDiscount;
         this.numberOfDiscount = numberOfDiscount;
-
-        discountMap.putIfAbsent(this.getNumberOfDiscount(), new DiscountCard(this.getPercentsOfDiscount(),this.getNumberOfDiscount()));
     }
 
     @Override

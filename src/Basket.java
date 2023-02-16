@@ -41,7 +41,7 @@ public class Basket {
             sb.append(productMap.get(key));
               }
         return String.format("%-4S %-20S %-8S %-8S\n\n","QTY","DESCRIPTION","PRICE", "TOTAL")
-                +sb.toString()+
+                + sb +
                 "\n===========================================\n\n"+
                 String.format("%-30S %S %.2f","TOTAL","$",totalOfBasket());
     }
