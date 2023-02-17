@@ -6,11 +6,12 @@ import java.util.*;
 
 public class Basket {
 
-    Map<Integer, Product> productMap = new HashMap<Integer, Product>();
-
+    Map<Integer, Product> productMap = new HashMap<>();
     public Basket() {
     }
-
+public Basket (Product product){
+        addProduct(product);
+}
    public double totalOfBasket() {
 
         Set<Integer> keys = productMap.keySet();
@@ -24,7 +25,7 @@ public class Basket {
     }
 
 
-    void addProduct (Product product) {
+    public void addProduct(Product product) {
 
             if (!productMap.isEmpty() && productMap.containsValue(product) ){
                 Product previousProduct = productMap.get(product.getIdOfProduct());
@@ -51,7 +52,7 @@ public class Basket {
                 String.format("%-30S %S %.2f","TOTAL","$",totalOfBasket());
     }
 
-
-
-
+    public Map<Integer, Product> getProductMap() {
+        return productMap;
+    }
 }

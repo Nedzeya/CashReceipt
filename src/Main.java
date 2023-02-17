@@ -2,7 +2,10 @@ import basket.Basket;
 import basket.DiscountCardBasket;
 import discount.Discount;
 import discount.DiscountCard;
+import heardOfReceipt.HeardOfReceipt;
+import product.Product;
 import product.ProductFactory;
+import receipt.Receipt;
 
 
 public class Main {
@@ -14,17 +17,22 @@ public class Main {
 
 
         ProductFactory productFactory = new ProductFactory();
-        //basket.Basket basket = new basket.Basket ();
-        Basket basket = new DiscountCardBasket(new Basket(), 1);
+        Product product1 = productFactory.createActionSixProduct(555, "hhh", 888, 1);
+
+        // Basket basket = new DiscountCardBasket(new Basket(), 1);
+        //  Basket basket = new Basket();
+
+//        basket.addProduct(productFactory.createActionSixProduct(555, "hhh", 888, 1));
+//        basket.addProduct(productFactory.createActionSixProduct(173, "ffeeef", 2, 21));
 
 
-        basket.addProduct(productFactory.createActionSixProduct(555, "hhh", 888, 1));
+        Receipt receipt = new Receipt.ReceiptBuilder(new Basket(product1))
+               // .setDiscountCardSubmitted(false)
+                .build();
 
-        basket.addProduct(productFactory.createActionSixProduct(173, "ffeeef", 2, 21));
 
+        System.out.println(receipt);
 
-
-        System.out.println(basket);
 
 
     }
