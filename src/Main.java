@@ -20,18 +20,21 @@ public class Main {
         Product product1 = productFactory.createActionSixProduct(555, "hhh", 888, 1);
 
         // Basket basket = new DiscountCardBasket(new Basket(), 1);
-        //  Basket basket = new Basket();
+          //Basket basket = new Basket(product1);
 
-//        basket.addProduct(productFactory.createActionSixProduct(555, "hhh", 888, 1));
+       //basket.addProduct(productFactory.createActionSixProduct(555, "hhh", 888, 1));
 //        basket.addProduct(productFactory.createActionSixProduct(173, "ffeeef", 2, 21));
 
+Receipt receipt = new Receipt.ReceiptBuilder(new Basket(product1))
+         .setDiscountCardSubmitted(true)
+        .build();
 
-        Receipt receipt = new Receipt.ReceiptBuilder(new Basket(product1))
-               // .setDiscountCardSubmitted(false)
-                .build();
+
+
 
 
         System.out.println(receipt);
+
 
 
 

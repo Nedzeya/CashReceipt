@@ -11,7 +11,7 @@ abstract class DecoratorDiscount extends Basket implements Discount {
     public DecoratorDiscount(Basket basket ){
 
         this.basket = basket;
-        this.productMap = basket.productMap;
+        this.basket.productMap= basket.getProductMap();
     }
 
 

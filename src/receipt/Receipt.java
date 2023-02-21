@@ -5,26 +5,24 @@ import basket.DiscountCardBasket;
 import heardOfReceipt.HeardOfReceipt;
 import product.Product;
 
-import java.util.HashMap;
-import java.util.Map;
+
 
 public class Receipt {
 
-    private HeardOfReceipt heardOfReceipt = new HeardOfReceipt();
-    private Basket basket = new Basket();
-
-
+    private HeardOfReceipt heardOfReceipt ;
+    private Basket basket;
     private DiscountCardBasket discountCardBasket;
     private boolean isDiscountCardSubmitted;
 
 
     private Receipt(ReceiptBuilder builder) {
-        this.heardOfReceipt = heardOfReceipt;
-        this.basket = basket;
-        this.isDiscountCardSubmitted = isDiscountCardSubmitted;
+        this.heardOfReceipt = builder.heardOfReceipt;
+        this.basket = builder.basket;
+        this.isDiscountCardSubmitted = builder.isDiscountCardSubmitted;
     }
 
     public HeardOfReceipt getHeardOfReceipt() {
+
         return heardOfReceipt;
     }
 
@@ -33,33 +31,38 @@ public class Receipt {
     }
 
     public boolean isDiscountCardSubmitted() {
+
         return isDiscountCardSubmitted;
     }
 
     @Override
     public String toString() {
-        return heardOfReceipt.toString() + basket.toString();
+        return getHeardOfReceipt().toString()
+                + getBasket().toString();
     }
 
-
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static class ReceiptBuilder {
+        private HeardOfReceipt heardOfReceipt= new HeardOfReceipt();
+        private Basket basket;
 
 
-        Map<Integer, Product> productMap = new HashMap<>();
-        private final Basket basket;
-        private DiscountCardBasket discountCardBasket;
+
+        //private DiscountCardBasket discountCardBasket;
+
         private boolean isDiscountCardSubmitted;
+
+        public ReceiptBuilder(Product product) {
+            this.heardOfReceipt = new HeardOfReceipt();
+            this.basket = new Basket(product);
+
+            System.out.println("new receipt was biulded");
+        }
 
         public ReceiptBuilder(Basket basket) {
             this.basket = basket;
-            this.productMap = basket.getProductMap();
 
         }
-
-//        public ReceiptBuilder(void addProduct) {
-//
-//        }
-
 
         public ReceiptBuilder setDiscountCardSubmitted(boolean isDiscountCardSubmitted) {
             this.isDiscountCardSubmitted = isDiscountCardSubmitted;
@@ -67,7 +70,10 @@ public class Receipt {
         }
 
         public Receipt build() {
+
             return new Receipt(this);
         }
+
     }
+
 }
