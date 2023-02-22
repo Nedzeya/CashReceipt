@@ -1,9 +1,12 @@
 import basket.Basket;
+import basket.DiscountCardBasket;
 import discount.Discount;
 import discount.DiscountCard;
 import product.Product;
 import product.ProductFactory;
 import receipt.Receipt;
+
+import java.util.Map;
 
 
 public class Main {
@@ -13,6 +16,11 @@ public class Main {
         discount.addDiscount(new DiscountCard(4, 1));
         discount.addDiscount(new DiscountCard(1, 2));
 
+        //Map<Integer, Discount> discountMap = discount.getDiscountMap();
+//        for (Integer key: discountMap.keySet()) {
+//            System.out.printf("%-10s\n", discountMap.get(key));
+//        }
+
 
         ProductFactory productFactory = new ProductFactory();
         Product product1 = productFactory.createActionSixProduct(555, "hhh", 888, 1);
@@ -21,8 +29,13 @@ public class Main {
         Product product4 = productFactory.createSimpleProduct(6, "w", 9, 1);
 
 
-        //Basket basket = new DiscountCardBasket(new Basket(), 1);
-        Basket basket = new Basket();
+        Basket basket;
+
+        if (discount.getDiscountMap().isEmpty()) {
+            basket = new Basket();
+        } else {
+            basket = new DiscountCardBasket(new Basket(), 1);
+        }
         basket.addProduct(product1);
         basket.addProduct(product2);
         basket.addProduct(product3);

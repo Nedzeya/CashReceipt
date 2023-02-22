@@ -1,6 +1,6 @@
 package discount;
 
-import discount.Discount;
+
 
 public class DiscountCard implements Discount {
     private double percentsOfDiscount;

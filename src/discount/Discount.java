@@ -12,9 +12,13 @@ public interface Discount {
     Map<Integer,Discount> discountMap = new HashMap<>();
 
    default void addDiscount (Discount discount) {
+
        discountMap.putIfAbsent(discount.getNumberOfDiscount(), discount);
    }
 
+   default Map <Integer,Discount> getDiscountMap (){
+       return discountMap;
+   }
 
 
 }
