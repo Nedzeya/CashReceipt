@@ -11,11 +11,7 @@ public class Basket {
 
     }
 
-    public Basket(Product product) {
 
-        addProduct(product);
-
-    }
 
    public double totalOfBasket() {
 

@@ -1,6 +1,7 @@
 package basket;
 
 import discount.Discount;
+import product.Product;
 
 public class DiscountCardBasket extends DecoratorDiscount{
 
