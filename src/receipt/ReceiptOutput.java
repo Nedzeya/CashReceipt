@@ -1,10 +1,17 @@
 package receipt;
+import heardOfReceipt.HeardOfReceipt;
+
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ReceiptOutput {
 
     Receipt.ReceiptBuilder receiptBuilder;
-
+    SimpleDateFormat dataFormat = new SimpleDateFormat("dd-MM-yy");
+    String date = dataFormat.format(new Date());
+    SimpleDateFormat timeFormat = new SimpleDateFormat("HH-mm-ss");
+    String time =  timeFormat.format(new Date());
     public ReceiptOutput() {
 
     }
@@ -16,7 +23,8 @@ public class ReceiptOutput {
 
             public void saveInFile (Object object){
                 this.receiptBuilder = (Receipt.ReceiptBuilder) object;
-                try (FileWriter writer = new FileWriter("receipt.txt", false))
+                String filename = "receipt_"+date+"_"+time+".txt";
+                try (FileWriter writer = new FileWriter(filename, false))
                 {
                     String textOfReceipt = receiptBuilder.toString();
                     writer.write(textOfReceipt);

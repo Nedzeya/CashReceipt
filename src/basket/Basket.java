@@ -34,12 +34,12 @@ public class Basket {
 
                 productMap.replace(product.getIdOfProduct(), previousProduct);
 
-                System.out.println("the same pr was added");
+
          }
             else {
                 productMap.put(product.getIdOfProduct(), product);
 
-                System.out.println("new pr was added");
+
 
          }
                }

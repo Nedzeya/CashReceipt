@@ -33,4 +33,12 @@ public class HeardOfReceipt {
                 nameOfReceipt,nameOfShop,addressOfShop, telephone,cashierNumber,date,time,
                 "____________________________________________________\n\n");
     }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getTime() {
+        return time;
+    }
 }
