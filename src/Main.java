@@ -30,7 +30,8 @@ public class Main {
 
 
         Receipt receipt1 = new Receipt.ReceiptBuilder(basket)
-                .setIsPrintInConsole(false)
+                .setIsPrintInConsole(true)
+                .setIsSaveInFile(true)
                 .build();
 
 

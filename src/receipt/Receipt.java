@@ -10,17 +10,15 @@ public class Receipt {
 
     private HeardOfReceipt heardOfReceipt;
     private Basket basket;
-
-    private boolean isPrintInConsole;
-
-    private boolean isSaveInFile;
+    private ReceiptOutput receiptOutput;
 
 
     private Receipt(ReceiptBuilder builder) {
         this.heardOfReceipt = builder.heardOfReceipt;
         this.basket = builder.basket;
-        this.isPrintInConsole = builder.isPrintInConsole;
-        this.isSaveInFile = builder.isSaveInFile;
+        this.receiptOutput = builder.receiptOutput;
+
+
     }
 
     public HeardOfReceipt getHeardOfReceipt() {
@@ -38,18 +36,13 @@ public class Receipt {
                 + getBasket().toString();
     }
 
-    public boolean isPrintInConsole() {
-        return isPrintInConsole;
-    }
-
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static class ReceiptBuilder {
         private HeardOfReceipt heardOfReceipt = new HeardOfReceipt();
         private Basket basket;
 
-        private boolean isPrintInConsole;
-        private boolean isSaveInFile;
+        private ReceiptOutput receiptOutput = new ReceiptOutput();
 
 
         public ReceiptBuilder(Basket basket) {
@@ -59,18 +52,16 @@ public class Receipt {
         }
 
         public ReceiptBuilder setIsPrintInConsole(boolean isPrintInConsole) {
-            this.isPrintInConsole = isPrintInConsole;
             if (isPrintInConsole) {
-                System.out.println(this);
+                receiptOutput.printInConsole(this);
             }
             return this;
 
         }
 
         public ReceiptBuilder setIsSaveInFile (boolean isSaveInFile){
-            this.isSaveInFile = isSaveInFile;
             if (isSaveInFile){
-
+                receiptOutput.saveInFile(this);
             }
 
             return this;
