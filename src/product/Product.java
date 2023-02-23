@@ -1,5 +1,9 @@
 package product;
 
+import discount.Discount;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public abstract class Product {
@@ -8,6 +12,8 @@ public abstract class Product {
     private String nameOfProduct;
     private double priceOfProduct;
     private int amountOfProduct;
+
+
 
 
     // basic constructor
