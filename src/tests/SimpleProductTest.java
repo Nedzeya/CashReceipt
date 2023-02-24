@@ -8,9 +8,9 @@ import static org.junit.Assert.*;
 
 public class SimpleProductTest {
 
-    Product product1 = new SimpleProduct(1, "D", 2, 3);
-    Product product2 = new SimpleProduct(2, "E", 3.2, 4);
-    Product product3 = new SimpleProduct(2, "E", 3.2, 5);
+    Product product1 = new SimpleProduct(1, "D", 2);
+    Product product2 = new SimpleProduct(2, "E", 3.2);
+    Product product3 = new SimpleProduct(2, "E", 3.2);
 
     @Test
     public void totalPriceOfProduct1() {

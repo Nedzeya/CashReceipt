@@ -11,17 +11,17 @@ public abstract class Product {
     private int idOfProduct;
     private String nameOfProduct;
     private double priceOfProduct;
-    private int amountOfProduct;
+    private int amountOfProduct=0;
 
 
 
 
     // basic constructor
-    public Product(int idOfProduct, String nameOfProduct, double priceOfProduct, int amountOfProduct) {
+    public Product(int idOfProduct, String nameOfProduct, double priceOfProduct) {
         this.idOfProduct = idOfProduct;
         this.nameOfProduct = nameOfProduct;
         this.priceOfProduct = priceOfProduct;
-        this.amountOfProduct = amountOfProduct;
+
     }
 
 // getters

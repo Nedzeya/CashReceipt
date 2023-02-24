@@ -5,8 +5,8 @@ import product.Product;
 public class SimpleProduct extends Product {
 
 
-    public SimpleProduct(int idOfProduct, String nameOfProduct, double priceOfProduct, int amountOfProduct) {
-        super(idOfProduct, nameOfProduct, priceOfProduct, amountOfProduct);
+    public SimpleProduct(int idOfProduct, String nameOfProduct, double priceOfProduct) {
+        super(idOfProduct, nameOfProduct, priceOfProduct);
     }
 
     @Override

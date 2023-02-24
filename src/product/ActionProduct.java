@@ -6,8 +6,8 @@ public class ActionProduct extends Product {
 
     Actions action;
 
-    public ActionProduct(int idOfProduct, String nameOfProduct, double priceOfProduct, int amountOfProduct, Actions action) {
-        super(idOfProduct, nameOfProduct, priceOfProduct, amountOfProduct);
+    public ActionProduct(int idOfProduct, String nameOfProduct, double priceOfProduct, Actions action) {
+        super(idOfProduct, nameOfProduct, priceOfProduct);
         this.action = action;
     }
 
