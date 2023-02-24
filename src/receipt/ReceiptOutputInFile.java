@@ -7,10 +7,11 @@ import java.util.Date;
 
 public class ReceiptOutputInFile implements ReceiptOutput {
 
-
+    Receipt.ReceiptBuilder receiptBuilder;
     public ReceiptOutputInFile() {
     }
-    public void saveInFile (Object object){
+    @Override
+    public void output (Object object){
                 this.receiptBuilder = (Receipt.ReceiptBuilder) object;
                 String filename = "receipt_"+date+"_"+time+".txt";
                 try (FileWriter writer = new FileWriter(filename, false))

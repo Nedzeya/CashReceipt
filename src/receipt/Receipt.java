@@ -7,13 +7,13 @@ public class Receipt {
 
     private HeardOfReceipt heardOfReceipt;
     private Basket basket;
-    private ReseiptOutputInConsole receiptOutput;
+    private ReceiptOutput output;
 
 
     private Receipt(ReceiptBuilder builder) {
         this.heardOfReceipt = builder.heardOfReceipt;
         this.basket = builder.basket;
-        this.receiptOutput = builder.receiptOutput;
+        this.output = builder.output;
 
 
     }
@@ -39,7 +39,7 @@ public class Receipt {
         private HeardOfReceipt heardOfReceipt = new HeardOfReceipt();
         private Basket basket;
 
-        private ReceiptOutput receiptOutput = new ReseiptOutputInConsole();
+        private ReceiptOutput output;
 
 
         public ReceiptBuilder(Basket basket) {
@@ -50,7 +50,8 @@ public class Receipt {
 
         public ReceiptBuilder setIsPrintInConsole(boolean isPrintInConsole) {
             if (isPrintInConsole) {
-                receiptOutput.printInConsole(this);
+                output = new ReseiptOutputInConsole();
+                output.output(this);
             }
             return this;
 
@@ -58,7 +59,8 @@ public class Receipt {
 
         public ReceiptBuilder setIsSaveInFile (boolean isSaveInFile){
             if (isSaveInFile){
-                receiptOutput.saveInFile(this);
+                output = new ReceiptOutputInFile();
+               output.output(this);
             }
 
             return this;

@@ -9,5 +9,5 @@ public interface ReceiptOutput {
     SimpleDateFormat timeFormat = new SimpleDateFormat("HH-mm-ss");
     String time = timeFormat.format(new Date());
 
-    Receipt.ReceiptBuilder getReceiptBuilder();
+   void output (Object object);
 }

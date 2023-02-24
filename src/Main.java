@@ -1,14 +1,10 @@
 import basket.Basket;
-import basket.DiscountCardBasket;
 import discount.Discount;
 import discount.DiscountCard;
 import product.Product;
 import product.ProductFactory;
 import receipt.Receipt;
-import receipt.ReceiptInput;
-
-import java.util.HashMap;
-import java.util.Map;
+import receipt.ReceiptInputFromConsole;
 
 
 public class Main {
@@ -36,14 +32,15 @@ public class Main {
 
         Basket basket = new Basket();
 
-        ReceiptInput input = new ReceiptInput();
+        ReceiptInputFromConsole input;
 
-        input.inputFromConsole(args,productFactory,basket,discount);
+        input = new ReceiptInputFromConsole();
+        input.input(args,productFactory,basket,discount);
 
 
             Receipt receipt1 = new Receipt.ReceiptBuilder(basket)
                     .setIsPrintInConsole(true)
-                    .setIsSaveInFile(false)
+                    .setIsSaveInFile(true)
                     .build();
 
 

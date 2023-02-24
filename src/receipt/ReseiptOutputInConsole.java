@@ -6,16 +6,13 @@ public class ReseiptOutputInConsole implements ReceiptOutput {
     public ReseiptOutputInConsole() {
 
     }
-
-    public void printInConsole (Object object) {
+@Override
+    public void output (Object object) {
         this.receiptBuilder = (Receipt.ReceiptBuilder) object;
         System.out.println(this.receiptBuilder);
             }
 
-    @Override
-    public Receipt.ReceiptBuilder getReceiptBuilder() {
-        return this.receiptBuilder;
-    }
+
 
 
 }
