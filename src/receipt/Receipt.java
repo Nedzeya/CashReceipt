@@ -3,14 +3,11 @@ package receipt;
 import basket.Basket;
 import heardOfReceipt.HeardOfReceipt;
 
-
-
-
 public class Receipt {
 
     private HeardOfReceipt heardOfReceipt;
     private Basket basket;
-    private ReceiptOutput receiptOutput;
+    private ReseiptOutputInConsole receiptOutput;
 
 
     private Receipt(ReceiptBuilder builder) {
@@ -42,7 +39,7 @@ public class Receipt {
         private HeardOfReceipt heardOfReceipt = new HeardOfReceipt();
         private Basket basket;
 
-        private ReceiptOutput receiptOutput = new ReceiptOutput();
+        private ReceiptOutput receiptOutput = new ReseiptOutputInConsole();
 
 
         public ReceiptBuilder(Basket basket) {

@@ -13,12 +13,6 @@ public class DiscountCardBasket extends DecoratorDiscount{
 
 
 
-//    public DiscountCardBasket(Basket basket, int numberOfDiscount) {
-//        super(basket);
-//
-//        this.discount = discountMap.get(numberOfDiscount);
-//    }
-
     public DiscountCardBasket(Map<Integer, Product> basketMap, int numberOfDiscount) {
         super(basketMap);
         this.discount = discountMap.get(numberOfDiscount);
