@@ -3,17 +3,26 @@ package basket;
 import discount.Discount;
 import product.Product;
 
+import java.util.Map;
+
 public class DiscountCardBasket extends DecoratorDiscount{
 
 
-Discount discount;
-    public DiscountCardBasket(Basket basket, int numberOfDiscount) {
-        super(basket);
+    Discount discount;
 
+
+
+
+//    public DiscountCardBasket(Basket basket, int numberOfDiscount) {
+//        super(basket);
+//
+//        this.discount = discountMap.get(numberOfDiscount);
+//    }
+
+    public DiscountCardBasket(Map<Integer, Product> basketMap, int numberOfDiscount) {
+        super(basketMap);
         this.discount = discountMap.get(numberOfDiscount);
-       }
-
-
+    }
 
     @Override
     public double totalOfBasket() {
@@ -40,5 +49,10 @@ Discount discount;
     @Override
     public String getNameOfDiscount() {
         return this.discount.getNameOfDiscount();
+    }
+
+    @Override
+    public Map<Integer, Product> getBasketMap() {
+        return super.basketMap;
     }
 }

@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Basket {
 
-   public Map<Integer, Product> productMap= new HashMap<>();
+   public Map<Integer, Product> basketMap = new HashMap<>();
     public Basket() {
 
     }
@@ -15,11 +15,11 @@ public class Basket {
 
    public double totalOfBasket() {
 
-        Set<Integer> keys = getProductMap().keySet();
+        Set<Integer> keys = getBasketMap().keySet();
 
         double result = 0;
         for (Integer key : keys) {
-            result += getProductMap().get(key).totalPriceOfProduct();
+            result += getBasketMap().get(key).totalPriceOfProduct();
         }
 
         return result;
@@ -28,16 +28,16 @@ public class Basket {
 
     public void addProduct(Product product) {
 
-            if (!productMap.isEmpty() && productMap.containsValue(product) ){
-                Product previousProduct = productMap.get(product.getIdOfProduct());
+            if (!basketMap.isEmpty() && basketMap.containsValue(product) ){
+                Product previousProduct = basketMap.get(product.getIdOfProduct());
                 previousProduct.setAmountOfProduct(previousProduct.getAmountOfProduct() + product.getAmountOfProduct());
 
-                productMap.replace(product.getIdOfProduct(), previousProduct);
+                basketMap.replace(product.getIdOfProduct(), previousProduct);
 
 
          }
             else {
-                productMap.put(product.getIdOfProduct(), product);
+                basketMap.put(product.getIdOfProduct(), product);
 
 
 
@@ -48,8 +48,8 @@ public class Basket {
     public String toString (){
 
         StringBuilder sb = new StringBuilder(" ");
-        for (Integer key : getProductMap().keySet()) {
-            sb.append(getProductMap().get(key));
+        for (Integer key : getBasketMap().keySet()) {
+            sb.append(getBasketMap().get(key));
               }
         return String.format("%-4S %-20S %-8S %-8S\n\n","QTY","DESCRIPTION","PRICE", "TOTAL")
                 + sb +
@@ -57,7 +57,7 @@ public class Basket {
                 String.format("%-30S %S %.2f","TOTAL","$",totalOfBasket());
     }
 
-    public Map<Integer, Product> getProductMap() {
-        return productMap;
+    public Map<Integer, Product> getBasketMap() {
+        return basketMap;
     }
 }

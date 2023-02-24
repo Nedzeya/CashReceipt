@@ -12,11 +12,11 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        args = new String[4];
-args [ 0] = "10-1";
-args [ 1] = "4-1";
-args [ 2] = "3-5";
-args [ 3] = "5-1";
+//        args = new String[4];
+//args [ 0] = "3-10";
+//args [ 1] = "4-1";
+//args [ 2] = "card-5";
+//args [ 3] = "5-2";
 
         Discount discount = new DiscountCard();
         discount.addDiscount(new DiscountCard(4, 1));
@@ -40,8 +40,12 @@ args [ 3] = "5-1";
 
 
         Basket basket = new Basket();
-
-//        Map<Integer, Product> basketMap = basket.getProductMap();  // what we have in bASKET after adding
+//        Map<Integer, Product> basketMap = basket.getBasketMap();
+//        basket.addProduct(product4);
+//
+//        basket = new DiscountCardBasket(basket.getBasketMap(), 1);
+//        basket.addProduct(product2);
+//         // what we have in bASKET after adding
 //  for (Integer key: basketMap.keySet()){
 //      System.out.println("the basket map is");
 //      System.out.printf("%-10s", basketMap.get(key));
@@ -52,24 +56,24 @@ args [ 3] = "5-1";
 
 
         for ( int i = 0; i < args.length; i++) {
-            System.out.println(args[i]);
+       //     System.out.println(args[i]);
 
 
             //  System.out.println(args[i]);
-            if (!args[i].toLowerCase().contains("card")) {
+            if (args[i]!=null && !args[i].toLowerCase().contains("card")) {
                 try {
-                    System.out.println("product we have " + args[i]);
+                   // System.out.println("product we have " + args[i]);
                     Integer idOfProduct = Integer.valueOf(args[i].substring(0, args[i].indexOf("-")));
-                    System.out.println("id of product is " + idOfProduct);
+                   // System.out.println("id of product is " + idOfProduct);
                     Integer amountOfProduct = Integer.valueOf(args[i].substring(args[i].indexOf("-") + 1));
-                    System.out.println("amount of product is " + amountOfProduct);
+                   // System.out.println("amount of product is " + amountOfProduct);
                     if (productFactory.getProductMap().containsKey(idOfProduct)) {
                         Product product = productFactory.getProductMap().get(idOfProduct);
                         product.setAmountOfProduct(amountOfProduct);
                         basket.addProduct(product);
-                        System.out.println("was added product  " + product);
+                       // System.out.println("was added product  " + product);
                     } else {
-                        System.out.println("there are no such product");
+                        System.out.println("there are no such product "+ args [i]);
                     }
                 }catch (NumberFormatException e){
                     System.out.println("incorrect  product");
@@ -80,12 +84,12 @@ args [ 3] = "5-1";
             }
 
             else {
-                System.out.println("card we have " + args[i]);
+                //System.out.println("card we have " + args[i]);
                 try {
                     Integer numberOfCard = Integer.valueOf(args[i].substring(5));
-                    System.out.println("number of card is " + numberOfCard);
+                    //System.out.println("number of card is " + numberOfCard);
                     if (discount.getDiscountMap().containsKey(numberOfCard)) {
-                        basket = new DiscountCardBasket(basket, numberOfCard);
+                        basket = new DiscountCardBasket(basket.getBasketMap(), numberOfCard);
 
                     }
                 } catch (NumberFormatException e) {
@@ -97,7 +101,7 @@ args [ 3] = "5-1";
 
             Receipt receipt1 = new Receipt.ReceiptBuilder(basket)
                     .setIsPrintInConsole(true)
-                    .setIsSaveInFile(false)
+                    .setIsSaveInFile(true)
                     .build();
 
 
