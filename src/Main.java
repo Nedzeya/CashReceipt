@@ -4,17 +4,23 @@ import discount.DiscountCard;
 import product.Product;
 import product.ProductFactory;
 import receipt.Receipt;
+import receipt.ReceiptInput;
 import receipt.ReceiptInputFromConsole;
+import receipt.ReceiptInputFromFile;
 
 
 public class Main {
     public static void main(String[] args) {
 
-        args = new String[4];
-        args[0] = "3-10";
-        args[1] = "4-1";
-        args[2] = "card-5";
-        args[3] = "5-2";
+//        args = new String[4];
+//        args[0] = "3-10";
+//        args[1] = "4-1";
+//        args[2] = "card-5";
+//        args[3] = "5-2";
+
+        args = new String[1];
+        args[0] = "receiptInput.txt";
+
 
         Discount discount = new DiscountCard();
         discount.addDiscount(new DiscountCard(4, 1));
@@ -32,15 +38,18 @@ public class Main {
 
         Basket basket = new Basket();
 
-        ReceiptInputFromConsole input;
+        ReceiptInput input;
 
-        input = new ReceiptInputFromConsole();
+//        input = new ReceiptInputFromConsole();
+//        input.input(args,productFactory,basket,discount);
+
+        input = new ReceiptInputFromFile();
         input.input(args,productFactory,basket,discount);
 
 
             Receipt receipt1 = new Receipt.ReceiptBuilder(basket)
                     .setIsPrintInConsole(true)
-                    .setIsSaveInFile(true)
+                    .setIsSaveInFile(false)
                     .build();
 
 

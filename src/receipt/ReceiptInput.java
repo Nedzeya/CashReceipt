@@ -6,4 +6,6 @@ import product.ProductFactory;
 
 public interface ReceiptInput {
     void input (String[] args, ProductFactory productFactory, Basket basket, Discount discount);
+
+
 }
