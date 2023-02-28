@@ -8,18 +8,21 @@ import receipt.ReceiptInput;
 import receipt.ReceiptInputFromConsole;
 import receipt.ReceiptInputFromFile;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 
 public class Main {
     public static void main(String[] args) {
 
 //        args = new String[4];
 //        args[0] = "3-10";
-//        args[1] = "4-1";
+//        args[1] = "po";
 //        args[2] = "card-5";
 //        args[3] = "5-2";
 
-        args = new String[1];
-        args[0] = "receiptInput.txt";
+//        args = new String[1];
+//        args[0] = "x.txt";
 
 
         Discount discount = new DiscountCard();
@@ -34,23 +37,23 @@ public class Main {
         Product product4 = productFactory.createSimpleProduct(6, "w", 9);
 
 
-
-
         Basket basket = new Basket();
 
         ReceiptInput input;
+            if (args.length>0 && args[0].toLowerCase().contains(".txt")) {
+                input = new ReceiptInputFromFile();
+                input.input(args, productFactory, basket, discount);
+            }
+             else {
+                input = new ReceiptInputFromConsole();
+                input.input(args, productFactory, basket, discount);
 
-//        input = new ReceiptInputFromConsole();
-//        input.input(args,productFactory,basket,discount);
+            }
 
-        input = new ReceiptInputFromFile();
-        input.input(args,productFactory,basket,discount);
-
-
-            Receipt receipt1 = new Receipt.ReceiptBuilder(basket)
-                    .setIsPrintInConsole(true)
-                    .setIsSaveInFile(false)
-                    .build();
+        Receipt receipt1 = new Receipt.ReceiptBuilder(basket)
+                .setIsPrintInConsole(true)
+                .setIsSaveInFile(false)
+                .build();
 
 
     }

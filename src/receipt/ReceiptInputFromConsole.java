@@ -42,7 +42,7 @@ public class ReceiptInputFromConsole implements ReceiptInput{
                     } else {
                         System.out.println("there are no such product " + args[i]);
                     }
-                } catch (NumberFormatException e) {
+                } catch (NumberFormatException |StringIndexOutOfBoundsException e) {
                     System.out.println("incorrect  product");
                 }
 
@@ -56,7 +56,7 @@ public class ReceiptInputFromConsole implements ReceiptInput{
                         basket = new DiscountCardBasket(basket.getBasketMap(), numberOfCard);
 
                     }
-                } catch (NumberFormatException e) {
+                } catch (NumberFormatException | StringIndexOutOfBoundsException e) {
                     System.out.println("incorrect number of card");
                 }
 

@@ -29,32 +29,34 @@ public class ReceiptInputFromFile implements ReceiptInput {
         this.discount = discount;
 
 
-        try (FileReader reader = new FileReader(args[0])) {
-            int c;
-            List<Character> characterList = new ArrayList<>();
-            while ((c = reader.read()) != -1) {
-                characterList.add((char) c);
-            }
+        try (FileReader reader = new FileReader("D:\\Programing\\GitHub\\CashReceipt\\"+args[0])){
 
-            String string = new String();
-            for (char ch : characterList) {
-                string = string + ch;
-            }
 
-           String [] split =  string.split(" ");
-            this.args = Arrays.copyOf(split,split.length);
+                int c;
+                List<Character> characterList = new ArrayList<>();
+                while ((c = reader.read()) != -1) {
+                    characterList.add((char) c);
+                }
+
+                String string = new String();
+                for (char ch : characterList) {
+                    string = string + ch;
+                }
+
+                String[] split = string.split(" ");
+                this.args = Arrays.copyOf(split, split.length);
 
 //            for (String s: this.args ) {
 //                System.out.println(s);
 //            }
 
-             new ReceiptInputFromConsole().input(this.args,this.productFactory,this.basket,this.discount);
+                new ReceiptInputFromConsole().input(this.args, this.productFactory, this.basket, this.discount);
 
 
-        } catch (IOException ex) {
+        } catch (IOException|StringIndexOutOfBoundsException ex) {
+            System.out.println(ex.toString());
 
-            System.out.println("incorrect name of file");
+            System.out.println("incorrect name of file: " + args[0]);
         }
-
     }
 }
