@@ -42,7 +42,7 @@ public class Receipt {
         private ReceiptOutput output;
 
 
-        public ReceiptBuilder(Basket basket) {
+        public ReceiptBuilder() {
 
             this.basket = basket;
 

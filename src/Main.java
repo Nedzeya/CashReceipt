@@ -15,19 +15,19 @@ import java.nio.file.Paths;
 public class Main {
     public static void main(String[] args) {
 
-//        args = new String[4];
-//        args[0] = "3-10";
-//        args[1] = "po";
-//        args[2] = "card-5";
-//        args[3] = "5-2";
+        args = new String[4];
+        args[0] = "3-1";
+        args[1] = "5-1";
+        args[2] = "4-1";
+        args[3] = "card-5";
 
 //        args = new String[1];
 //        args[0] = "x.txt";
 
 
         Discount discount = new DiscountCard();
-        discount.addDiscount(new DiscountCard(4, 1));
-        discount.addDiscount(new DiscountCard(1, 2));
+        discount.addDiscount(new DiscountCard(80, 5));
+        discount.addDiscount(new DiscountCard(5, 1));
 
 
         ProductFactory productFactory = new ProductFactory();
@@ -37,20 +37,21 @@ public class Main {
         Product product4 = productFactory.createSimpleProduct(6, "w", 9);
 
 
-        Basket basket = new Basket();
+        Basket basket;
+
 
         ReceiptInput input;
             if (args.length>0 && args[0].toLowerCase().contains(".txt")) {
                 input = new ReceiptInputFromFile();
-                input.input(args, productFactory, basket, discount);
+                input.input(args, productFactory, discount);
             }
              else {
                 input = new ReceiptInputFromConsole();
-                input.input(args, productFactory, basket, discount);
+                input.input(args, productFactory,  discount);
 
             }
 
-        Receipt receipt1 = new Receipt.ReceiptBuilder(basket)
+        Receipt receipt1 = new Receipt.ReceiptBuilder()
                 .setIsPrintInConsole(true)
                 .setIsSaveInFile(false)
                 .build();

@@ -21,7 +21,7 @@ public class ReceiptInputFromFile implements ReceiptInput {
     }
 
     @Override
-    public void input(String[] args, ProductFactory productFactory, Basket basket, Discount discount) {
+    public void input(String[] args, ProductFactory productFactory, Discount discount) {
 
         this.args = args;
         this.productFactory = productFactory;
@@ -50,7 +50,7 @@ public class ReceiptInputFromFile implements ReceiptInput {
 //                System.out.println(s);
 //            }
 
-                new ReceiptInputFromConsole().input(this.args, this.productFactory, this.basket, this.discount);
+                new ReceiptInputFromConsole().input(this.args, this.productFactory, this.discount);
 
 
         } catch (IOException|StringIndexOutOfBoundsException ex) {
