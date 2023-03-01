@@ -10,16 +10,18 @@ import receipt.ReceiptInputFromFile;
 
 
 public class Main {
+
+
     public static void main(String[] args) {
 
-        args = new String[4];
-        args[0] = "3-100";
-        args[1] = "3-1";
-        args[2] = "card-5";
-        args[3] = "5-2";
+//        args = new String[4];
+//        args[0] = "3-100";
+//        args[1] = "3-1";
+//        args[2] = "card-5";
+//        args[3] = "5-2";
 
-//        args = new String[1];
-//        args[0] = "x.txt";
+        args = new String[1];
+        args[0] = "x.txt";
 
 
         Discount discount = new DiscountCard();
@@ -47,49 +49,15 @@ public class Main {
         for (int i = 0; i < args.length; i++) {
 
             if (args[i] != null && !args[i].toLowerCase().contains("card")) {
-                Integer idOfProduct = Integer.valueOf(args[i].substring(0, args[i].indexOf("-")));
+                Integer  idOfProduct = Integer.valueOf(args[i].substring(0, args[i].indexOf("-")));
                 Integer amountOfProduct = Integer.valueOf(args[i].substring(args[i].indexOf("-") + 1));
 
-                try {
-                    System.out.println("product we have " + args[i]);
-
-                    // System.out.println("id of product is " + idOfProduct);
-
-                    // System.out.println("amount of product is " + amountOfProduct);
-                    if (productFactory.getProductMap().containsKey(idOfProduct)) {
-                        Product product = productFactory.getProductMap().get(idOfProduct);
-                        System.out.println("product start amount in map " + product.getAmountOfProduct());
-                        if (product.getAmountOfProduct() == 0) {
-
-                            product.setAmountOfProduct(amountOfProduct);
-                        } else {
-                            product.setAmountOfProduct(product.getAmountOfProduct() + amountOfProduct);
-                        }
-                        System.out.println("pr new amount in map " + product.getAmountOfProduct());
-
-                        basket.addProduct(product);
-                        // System.out.println("was added product  " + product);
-                    } else {
-                        System.out.println("there are no such product " + args[i]);
-                    }
-                } catch (NumberFormatException | StringIndexOutOfBoundsException e) {
-                    System.out.println("incorrect  product");
-                }
-
+                    productRecognition(productFactory,basket,idOfProduct,amountOfProduct);
 
             } else {
                 Integer numberOfCard = Integer.valueOf(args[i].substring(5));
                 //System.out.println("card we have " + args[i]);
-                try {
-
-                    //System.out.println("number of card is " + numberOfCard);
-                    if (discount.getDiscountMap().containsKey(numberOfCard)) {
-                        basket = new DiscountCardBasket(basket.getBasketMap(), numberOfCard);
-
-                    }
-                } catch (NumberFormatException | StringIndexOutOfBoundsException e) {
-                    System.out.println("incorrect number of card");
-                }
+                basket = cardRecognition(basket,discount,numberOfCard);
 
             }
         }
@@ -101,5 +69,51 @@ public class Main {
                 .build();
 
 
+
+
+
+    }
+
+    static void productRecognition (ProductFactory productFactory,Basket basket,Integer idOfProduct, Integer amountOfProduct ){
+
+
+        try {
+            // System.out.println("product we have " + args[i]);
+
+            // System.out.println("id of product is " + idOfProduct);
+
+            // System.out.println("amount of product is " + amountOfProduct);
+            if (productFactory.getProductMap().containsKey(idOfProduct)) {
+                Product product = productFactory.getProductMap().get(idOfProduct);
+                //  System.out.println("product start amount in map " + product.getAmountOfProduct());
+                if (product.getAmountOfProduct() == 0) {
+
+                    product.setAmountOfProduct(amountOfProduct);
+                } else {
+                    product.setAmountOfProduct(product.getAmountOfProduct() + amountOfProduct);
+                }
+                //   System.out.println("pr new amount in map " + product.getAmountOfProduct());
+
+                basket.addProduct(product);
+                // System.out.println("was added product  " + product);
+            } else {
+                System.out.println("there are no such product ");
+            }
+        } catch (NumberFormatException | StringIndexOutOfBoundsException e) {
+            System.out.println("incorrect  product");
+        }
+    }
+    static Basket cardRecognition (Basket basket,Discount discount, Integer numberOfCard){
+        try {
+
+            //System.out.println("number of card is " + numberOfCard);
+            if (discount.getDiscountMap().containsKey(numberOfCard)) {
+               return new DiscountCardBasket(basket.getBasketMap(), numberOfCard);
+
+            }
+        } catch (NumberFormatException | StringIndexOutOfBoundsException e) {
+            System.out.println("incorrect number of card");
+        }
+        return basket;
     }
 }
