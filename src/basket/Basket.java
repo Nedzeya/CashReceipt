@@ -2,7 +2,9 @@ package basket;
 
 import product.Product;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class Basket {
 
@@ -27,22 +29,9 @@ public class Basket {
 
 
     public void addProduct(Product product) {
+        basketMap.put(product.getIdOfProduct(), product);
 
-            if (!basketMap.isEmpty() && basketMap.containsValue(product) ){
-                Product previousProduct = basketMap.get(product.getIdOfProduct());
-                previousProduct.setAmountOfProduct(previousProduct.getAmountOfProduct() + product.getAmountOfProduct());
-
-                basketMap.replace(product.getIdOfProduct(), previousProduct);
-
-
-         }
-            else {
-                basketMap.put(product.getIdOfProduct(), product);
-
-
-
-         }
-               }
+    }
 
     @Override
     public String toString (){

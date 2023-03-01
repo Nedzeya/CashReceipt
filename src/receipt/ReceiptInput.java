@@ -5,7 +5,7 @@ import discount.Discount;
 import product.ProductFactory;
 
 public interface ReceiptInput {
-    void input (String[] args, ProductFactory productFactory, Basket basket, Discount discount);
+    String []  input (String[] args);
 
 
 }

@@ -1,9 +1,5 @@
 package receipt;
 
-import basket.Basket;
-import discount.Discount;
-import product.ProductFactory;
-
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,24 +8,17 @@ import java.util.List;
 
 public class ReceiptInputFromFile implements ReceiptInput {
     private String[] args;
-    private ProductFactory productFactory;
-    private Basket basket;
-    private Discount discount;
-
 
     public ReceiptInputFromFile() {
     }
 
     @Override
-    public void input(String[] args, ProductFactory productFactory, Basket basket, Discount discount) {
+    public String[] input(String[] args) {
 
         this.args = args;
-        this.productFactory = productFactory;
-        this.basket = basket;
-        this.discount = discount;
 
 
-        try (FileReader reader = new FileReader("D:\\Programing\\GitHub\\CashReceipt\\"+args[0])){
+        try (FileReader reader = new FileReader("D:\\Programing\\GitHub\\CashReceipt\\" + args[0])) {
 
 
                 int c;
@@ -46,11 +35,11 @@ public class ReceiptInputFromFile implements ReceiptInput {
                 String[] split = string.split(" ");
                 this.args = Arrays.copyOf(split, split.length);
 
+
+
 //            for (String s: this.args ) {
 //                System.out.println(s);
 //            }
-
-                new ReceiptInputFromConsole().input(this.args, this.productFactory, this.basket, this.discount);
 
 
         } catch (IOException|StringIndexOutOfBoundsException ex) {
@@ -58,5 +47,12 @@ public class ReceiptInputFromFile implements ReceiptInput {
 
             System.out.println("incorrect name of file: " + args[0]);
         }
+
+        return this.args;
     }
+
+
+
+
+
 }
