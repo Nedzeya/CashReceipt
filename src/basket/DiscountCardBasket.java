@@ -26,7 +26,15 @@ public class DiscountCardBasket extends DecoratorDiscount{
 
     @Override
     public String toString() {
-        return super.toString();
+        StringBuilder sb = new StringBuilder(" ");
+        for (Integer key : getBasketMap().keySet()) {
+            sb.append(getBasketMap().get(key));
+        }
+        return String.format("%-4S %-20S %-8S %-8S\n\n","QTY","DESCRIPTION","PRICE", "TOTAL")
+                + sb +
+                "\n===========================================\n\n"+
+                String.format("%-30S  %.2f\n %30s %.2f\n %30S %.2f",
+                        "TOTAL",super.totalOfBasket(),"-",super.totalOfBasket()-totalOfBasket(),"$",totalOfBasket());
     }
 
     @Override
