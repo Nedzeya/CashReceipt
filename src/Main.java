@@ -19,9 +19,9 @@ public class Main {
 //        args[1] = "3-1";
 //        args[2] = "card-5";
 //        args[3] = "5-2";
-
-        args = new String[1];
-        args[0] = "x.txt";
+//
+//        args = new String[1];
+//        args[0] = "x.txt";
 
 
         Discount discount = new DiscountCard();
@@ -30,10 +30,10 @@ public class Main {
 
 
         ProductFactory productFactory = new ProductFactory();
-        Product product1 = productFactory.createActionSixProduct(3, "hhh", 888);
-        Product product2 = productFactory.createActionSixProduct(4, "hph", 98);
-        Product product3 = productFactory.createSimpleProduct(5, "q", 978);
-        Product product4 = productFactory.createSimpleProduct(6, "w", 9);
+        Product product1 = productFactory.createActionSixProduct(1, "Nicest Person", 888);
+        Product product2 = productFactory.createActionSixProduct(2, "Best Looking", 98);
+        Product product3 = productFactory.createSimpleProduct(3, "Best Face", 978);
+        Product product4 = productFactory.createSimpleProduct(4, "Great Smile", 9);
 
 
         Basket basket = new Basket();
@@ -65,7 +65,7 @@ public class Main {
 
         Receipt receipt1 = new Receipt.ReceiptBuilder(basket)
                 .setIsPrintInConsole(true)
-                .setIsSaveInFile(false)
+                .setIsSaveInFile(true)
                 .build();
 
 
