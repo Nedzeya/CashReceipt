@@ -6,21 +6,21 @@
 
 ### A file containing the receipt will also be generated.
 
-![File_of_receipt](ReceiptFile.jpg)
+![File_of_receipt](documents/pictures/ReceiptInFile.png)
 
 #
 ### It is possible to run the application java Main <file_name>, the file type .txt contains a set of parameters in the format specified earlier.
-![File_contains](FileContains.jpg)
+![File_contains](documents/pictures/FileContains.png)
 #
 ### An example how you can do it in console:
 
 * set_parameters
   
-  ![set_parameters](Set_parameters.jpg)
+  ![set_parameters](documents/pictures/Set_parameters.png)
 
 * file_name
 
-![file_name](file_name.jpg)
+![file_name](documents/pictures/file_name.png)
 
 #
 
