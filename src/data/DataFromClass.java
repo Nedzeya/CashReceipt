@@ -21,8 +21,8 @@ public class DataFromClass implements Data {
 
     @Override
     public ProductFactory productsData() {
-        productFactory.createActionSixProduct(1, "Nicest Person", 888);
-        productFactory.createActionSixProduct(2, "Best Looking", 98);
+        productFactory.createActionSixProductsProduct(1, "Nicest Person", 888);
+        productFactory.createActionSixProductsProduct(2, "Best Looking", 98);
         productFactory.createSimpleProduct(3, "Best Face", 978);
         productFactory.createSimpleProduct(4, "Great Smile", 9);
 

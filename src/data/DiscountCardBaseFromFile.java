@@ -13,6 +13,10 @@ public class DiscountCardBaseFromFile implements DiscountBase{
     private   String nameOfFile;
     private String [] args;
     private Discount discount = new DiscountCard();
+
+    public DiscountCardBaseFromFile() {
+    }
+
     @Override
     public Discount readingFromFile(String filename) {
          this.nameOfFile = filename;

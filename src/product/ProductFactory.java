@@ -2,8 +2,6 @@ package product;
 
 import actions.ActionSixProducts;
 import actions.Actions;
-import product.ActionProduct;
-import product.Product;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +16,7 @@ public class ProductFactory {
         return product;
     }
 
-   public Product createActionSixProduct(int IdOfProduct, String nameOfProduct, double priceOfProduct) {
+   public Product createActionSixProductsProduct(int IdOfProduct, String nameOfProduct, double priceOfProduct) {
        Product product = new ActionProduct(IdOfProduct, nameOfProduct, priceOfProduct, this.action);
        productMap.putIfAbsent(product.getIdOfProduct(),product);
         return product;

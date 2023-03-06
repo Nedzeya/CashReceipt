@@ -20,16 +20,18 @@ public class Main {
 //        args[2] = "3-1";
 //        args[3] = "card-2";
 //
-        args = new String[2];
+        args = new String[3];
         args[0] = "receiptInput.txt";
         args[1] = "discountCards.txt";
+        args [2]= "products.txt";
 
 
         ProductFactory productFactory;
-        Data data= new DataFromClass();;
+       // Data data= new DataFromClass();;
         Basket basket = new Basket();
         ReceiptInput input;
         DiscountBase discountBase = new DiscountCardBaseFromFile();
+        ProductBase productBase = new ProductBaseFromFile();
         Discount discount;
 
 
@@ -39,6 +41,7 @@ public class Main {
             String nameOfFileReceiptInput = "";
             String nameOfFileData = "";
             String nameOfDiscountCardFile = "";
+            String nameOfProductsBase ="";
 
         if (args.length > 0) {
             for (String s : args) {
@@ -55,16 +58,20 @@ public class Main {
                     nameOfDiscountCardFile = s;
                 }
 
+                if (s.toLowerCase().contains("products")) {
+                    nameOfProductsBase= s;
+                }
+
             }
-            System.out.println("receiptInput - " + receiptInput + "\n dataFromFile - " + dataFromFile);
+            //System.out.println("receiptInput - " + receiptInput + "\n dataFromFile - " + dataFromFile);
 
             if (receiptInput == 1) {
                 input = new ReceiptInputFromFile();
                 args = input.input(nameOfFileReceiptInput);
             }
-            if (dataFromFile == 1) {
-                data = new DataFromFile(nameOfFileData);
-            }
+//            if (dataFromFile == 1) {
+//                data = new DataFromFile(nameOfFileData);
+//            }
 
 //            if(dataDiscountCards ==1) {
 //                discount = discountBase.readingFromFile(nameOfDiscountCardFile);
@@ -77,7 +84,8 @@ public class Main {
 
         discount = discountBase.readingFromFile(nameOfDiscountCardFile);
        // discount = data.discountData();
-        productFactory = data.productsData();
+       // productFactory = data.productsData();
+        productFactory = productBase.readingFromFile(nameOfProductsBase);
 
         for (int i = 0; i < args.length; i++) {
 
