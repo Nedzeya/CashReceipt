@@ -5,7 +5,7 @@ import discount.Discount;
 import product.ProductFactory;
 
 public interface ReceiptInput {
-    String []  input (String[] args);
+    String []  input (String nameOfFileReceiptInput);
 
 
 }

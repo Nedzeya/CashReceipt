@@ -1,13 +1,14 @@
 import basket.Basket;
 import basket.DiscountCardBasket;
+import data.Data;
+import data.DataFromClass;
+import data.DataFromFile;
 import discount.Discount;
-import discount.DiscountCard;
 import product.Product;
 import product.ProductFactory;
-import receipt.Receipt;
 import receipt.Input.ReceiptInput;
 import receipt.Input.ReceiptInputFromFile;
-import data.*;
+import receipt.Receipt;
 
 
 public class Main {
@@ -15,40 +16,61 @@ public class Main {
 
     public static void main(String[] args) {
 
-        args = new String[4];
-        args[0] = "1-100";
-        args[1] = "2-1";
-        args[2] = "3-1";
-        args[3] = "card-2";
+//        args = new String[4];
+//        args[0] = "1-100";
+//        args[1] = "2-1";
+//        args[2] = "3-1";
+//        args[3] = "card-2";
 //
-//        args = new String[1];
-//        args[0] = "x.txt";
+        args = new String[1];
+        args[0] = "receiptInput.txt";
 
         Discount discount;
         ProductFactory productFactory;
+        Data data= new DataFromClass();;
+        Basket basket = new Basket();
+        ReceiptInput input;
 
-        Data data = new DataFromClass();
+
+        if (args.length > 0) {
+
+            int receiptInput = 0;
+            int dataFromFile = 0;
+            String nameOfFileReceiptInput = "";
+            String nameOfFileData = "";
+
+            for (String s : args) {
+                if (s.toLowerCase().contains("receiptinput")) {
+                    receiptInput = 1;
+                    nameOfFileReceiptInput = s;
+                }
+                if (s.toLowerCase().contains("data")) {
+                    dataFromFile = 1;
+                    nameOfFileData = s;
+                }
+            }
+            System.out.println("receiptInput - " + receiptInput + "\n dataFromFile - " + dataFromFile);
+
+            if (receiptInput == 1) {
+                input = new ReceiptInputFromFile();
+                args = input.input(nameOfFileReceiptInput);
+            }
+            if (dataFromFile == 1) {
+                data = new DataFromFile();
+            }
+
+
+        }
         discount = data.discountData();
         productFactory = data.productsData();
-
-
-        Basket basket = new Basket();
-
-
-        ReceiptInput input;
-        if (args.length > 0 && args[0].toLowerCase().contains(".txt")) {
-            input = new ReceiptInputFromFile();
-            args = input.input(args);
-        }
-
 
         for (int i = 0; i < args.length; i++) {
 
             if (args[i] != null && !args[i].toLowerCase().contains("card")) {
-                Integer  idOfProduct = Integer.valueOf(args[i].substring(0, args[i].indexOf("-")));
+                Integer idOfProduct = Integer.valueOf(args[i].substring(0, args[i].indexOf("-")));
                 Integer amountOfProduct = Integer.valueOf(args[i].substring(args[i].indexOf("-") + 1));
 
-                    productRecognition(productFactory,basket,idOfProduct,amountOfProduct);
+                productRecognition(productFactory, basket, idOfProduct, amountOfProduct);
 
             } else {
                 Integer numberOfCard = Integer.valueOf(args[i].substring(5));
@@ -61,7 +83,7 @@ public class Main {
 
         Receipt receipt1 = new Receipt.ReceiptBuilder(basket)
                 .setIsPrintInConsole(true)
-                .setIsSaveInFile(true)
+                .setIsSaveInFile(false)
                 .build();
 
 

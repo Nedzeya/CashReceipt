@@ -10,17 +10,19 @@ import java.util.List;
 
 public class ReceiptInputFromFile implements ReceiptInput {
     private String[] args;
+  private   String nameOfFile;
 
     public ReceiptInputFromFile() {
     }
 
     @Override
-    public String[] input(String[] args) {
+    public String[] input(String nameOfFile) {
 
-        this.args = args;
+        this.nameOfFile = nameOfFile;
 
 
-        try (FileReader reader = new FileReader("D:\\Programing\\GitHub\\CashReceipt\\" + args[0])) {
+
+        try (FileReader reader = new FileReader("D:\\Programing\\GitHub\\CashReceipt\\" + nameOfFile)) {
 
 
                 int c;
@@ -39,15 +41,10 @@ public class ReceiptInputFromFile implements ReceiptInput {
 
 
 
-//            for (String s: this.args ) {
-//                System.out.println(s);
-//            }
-
-
         } catch (IOException|StringIndexOutOfBoundsException ex) {
             System.out.println(ex.toString());
 
-            System.out.println("incorrect name of file: " + args[0]);
+            System.out.println("incorrect name of file: " + nameOfFile);
         }
 
         return this.args;

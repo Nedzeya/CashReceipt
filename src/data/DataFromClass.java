@@ -5,8 +5,8 @@ import discount.DiscountCard;
 import product.ProductFactory;
 
 public class DataFromClass implements Data {
-    Discount discount = new DiscountCard();
-    ProductFactory productFactory = new ProductFactory();
+    private Discount discount = new DiscountCard();
+  private  ProductFactory productFactory = new ProductFactory();
 
     @Override
     public Discount discountData() {
@@ -25,11 +25,4 @@ public class DataFromClass implements Data {
 
         return productFactory;
     }
-//    @Override
-//    public Map<Integer, Discount> discountData() {
-//
-//        discount.addDiscount(new DiscountCard(4, 1));
-//        discount.addDiscount(new DiscountCard(10, 2));
-//        return discount.getDiscountMap();
-//    }
 }
