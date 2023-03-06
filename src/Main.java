@@ -16,25 +16,20 @@ public class Main {
     public static void main(String[] args) {
 
         args = new String[4];
-        args[0] = "3-100";
-        args[1] = "3-1";
-        args[2] = "card-1";
-        args[3] = "2-2";
+        args[0] = "1-100";
+        args[1] = "2-1";
+        args[2] = "3-1";
+        args[3] = "card-2";
 //
 //        args = new String[1];
 //        args[0] = "x.txt";
+
         Discount discount;
+        ProductFactory productFactory;
 
         Data data = new DataFromClass();
-
         discount = data.discountData();
-
-
-        ProductFactory productFactory = new ProductFactory();
-        Product product1 = productFactory.createActionSixProduct(1, "Nicest Person", 888);
-        Product product2 = productFactory.createActionSixProduct(2, "Best Looking", 98);
-        Product product3 = productFactory.createSimpleProduct(3, "Best Face", 978);
-        Product product4 = productFactory.createSimpleProduct(4, "Great Smile", 9);
+        productFactory = data.productsData();
 
 
         Basket basket = new Basket();

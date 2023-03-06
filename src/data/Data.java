@@ -1,11 +1,12 @@
 package data;
 
 import discount.Discount;
+import product.ProductFactory;
 
 import java.util.Map;
 
 public interface Data {
-    //Map<Integer, Discount> discountData();
-    Discount discountData ();
+        Discount discountData ();
+        ProductFactory productsData ();
 
 }
