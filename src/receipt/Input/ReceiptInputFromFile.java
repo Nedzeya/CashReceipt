@@ -22,7 +22,7 @@ public class ReceiptInputFromFile implements ReceiptInput {
 
 
 
-        try (FileReader reader = new FileReader("D:\\Programing\\GitHub\\CashReceipt\\" + nameOfFile)) {
+        try (FileReader reader = new FileReader("D:\\Programing\\GitHub\\CashReceipt\\" + this.nameOfFile)) {
 
 
                 int c;

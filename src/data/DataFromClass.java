@@ -8,10 +8,13 @@ public class DataFromClass implements Data {
     private Discount discount = new DiscountCard();
   private  ProductFactory productFactory = new ProductFactory();
 
+    public DataFromClass() {
+    }
+
     @Override
     public Discount discountData() {
-        discount.addDiscount(new DiscountCard(4, 1));
-        discount.addDiscount(new DiscountCard(10, 2));
+        discount.addDiscount(new DiscountCard(4, 11));
+        discount.addDiscount(new DiscountCard(10, 22));
 
         return discount;
     }

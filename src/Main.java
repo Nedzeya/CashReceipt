@@ -1,8 +1,6 @@
 import basket.Basket;
 import basket.DiscountCardBasket;
-import data.Data;
-import data.DataFromClass;
-import data.DataFromFile;
+import data.*;
 import discount.Discount;
 import product.Product;
 import product.ProductFactory;
@@ -22,32 +20,41 @@ public class Main {
 //        args[2] = "3-1";
 //        args[3] = "card-2";
 //
-        args = new String[1];
+        args = new String[2];
         args[0] = "receiptInput.txt";
+        args[1] = "discountCards.txt";
 
-        Discount discount;
+
         ProductFactory productFactory;
         Data data= new DataFromClass();;
         Basket basket = new Basket();
         ReceiptInput input;
+        DiscountBase discountBase = new DiscountCardBaseFromFile();
+        Discount discount;
 
-
-        if (args.length > 0) {
 
             int receiptInput = 0;
             int dataFromFile = 0;
+            int dataDiscountCards = 0;
             String nameOfFileReceiptInput = "";
             String nameOfFileData = "";
+            String nameOfDiscountCardFile = "";
 
+        if (args.length > 0) {
             for (String s : args) {
                 if (s.toLowerCase().contains("receiptinput")) {
                     receiptInput = 1;
                     nameOfFileReceiptInput = s;
                 }
-                if (s.toLowerCase().contains("data")) {
-                    dataFromFile = 1;
-                    nameOfFileData = s;
+//                if (s.toLowerCase().contains("data")) {
+//                    dataFromFile = 1;
+//                    nameOfFileData = s;
+//                }
+                if (s.toLowerCase().contains("discountcards")) {
+                    dataDiscountCards = 1;
+                    nameOfDiscountCardFile = s;
                 }
+
             }
             System.out.println("receiptInput - " + receiptInput + "\n dataFromFile - " + dataFromFile);
 
@@ -56,12 +63,20 @@ public class Main {
                 args = input.input(nameOfFileReceiptInput);
             }
             if (dataFromFile == 1) {
-                data = new DataFromFile();
+                data = new DataFromFile(nameOfFileData);
             }
+
+//            if(dataDiscountCards ==1) {
+//                discount = discountBase.readingFromFile(nameOfDiscountCardFile);
+//            }
+
 
 
         }
-        discount = data.discountData();
+
+
+        discount = discountBase.readingFromFile(nameOfDiscountCardFile);
+       // discount = data.discountData();
         productFactory = data.productsData();
 
         for (int i = 0; i < args.length; i++) {
