@@ -7,6 +7,7 @@ import product.ProductFactory;
 import receipt.Receipt;
 import receipt.Input.ReceiptInput;
 import receipt.Input.ReceiptInputFromFile;
+import data.*;
 
 
 public class Main {
@@ -14,19 +15,19 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        args = new String[4];
-//        args[0] = "3-100";
-//        args[1] = "3-1";
-//        args[2] = "card-5";
-//        args[3] = "5-2";
+        args = new String[4];
+        args[0] = "3-100";
+        args[1] = "3-1";
+        args[2] = "card-1";
+        args[3] = "2-2";
 //
 //        args = new String[1];
 //        args[0] = "x.txt";
+        Discount discount;
 
+        Data data = new DataFromClass();
 
-        Discount discount = new DiscountCard();
-        discount.addDiscount(new DiscountCard(4, 1));
-        discount.addDiscount(new DiscountCard(10, 2));
+        discount = data.discountData();
 
 
         ProductFactory productFactory = new ProductFactory();

@@ -1,4 +1,9 @@
 package data;
 
-public class DataFromFile implements Data{
+import discount.Discount;
+
+import java.util.Map;
+
+public class DataFromFile {
+
 }
