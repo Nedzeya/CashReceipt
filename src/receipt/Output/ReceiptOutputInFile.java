@@ -1,9 +1,9 @@
-package receipt;
+package receipt.Output;
+
+import receipt.Receipt;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class ReceiptOutputInFile implements ReceiptOutput {
 

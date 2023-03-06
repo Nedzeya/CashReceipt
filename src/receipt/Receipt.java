@@ -2,6 +2,9 @@ package receipt;
 
 import basket.Basket;
 import heardOfReceipt.HeardOfReceipt;
+import receipt.Output.ReceiptOutput;
+import receipt.Output.ReceiptOutputInFile;
+import receipt.Output.ReseiptOutputInConsole;
 
 public class Receipt {
 

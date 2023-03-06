@@ -1,4 +1,6 @@
-package receipt;
+package receipt.Input;
+
+
 
 import java.io.FileReader;
 import java.io.IOException;

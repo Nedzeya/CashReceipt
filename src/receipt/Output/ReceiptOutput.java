@@ -1,4 +1,4 @@
-package receipt;
+package receipt.Output;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

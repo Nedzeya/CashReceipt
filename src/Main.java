@@ -5,8 +5,8 @@ import discount.DiscountCard;
 import product.Product;
 import product.ProductFactory;
 import receipt.Receipt;
-import receipt.ReceiptInput;
-import receipt.ReceiptInputFromFile;
+import receipt.Input.ReceiptInput;
+import receipt.Input.ReceiptInputFromFile;
 
 
 public class Main {

@@ -1,4 +1,6 @@
-package receipt;
+package receipt.Output;
+
+import receipt.Receipt;
 
 public class ReseiptOutputInConsole implements ReceiptOutput {
 

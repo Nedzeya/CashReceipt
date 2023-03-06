@@ -1,4 +1,4 @@
-package receipt;
+package receipt.Input;
 
 import basket.Basket;
 import discount.Discount;
