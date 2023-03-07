@@ -1,24 +1,24 @@
-package data;
+package DataDiscountAndProducts;
 
 import discount.Discount;
 import discount.DiscountCard;
-import product.ProductFactory;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
-public class DataFromFile implements Data {
-    private String[] args;
+public class DiscountCardBaseFromFile implements DiscountBase{
     private   String nameOfFile;
+    private String [] args;
     private Discount discount = new DiscountCard();
-    private  ProductFactory productFactory = new ProductFactory();
 
-    public DataFromFile(String nameOfFile) {
-        this.nameOfFile = nameOfFile;
+    public DiscountCardBaseFromFile() {
+    }
+
+    @Override
+    public Discount readingFromFile(String filename) {
+         this.nameOfFile = filename;
 
         try (FileReader reader = new FileReader("D:\\Programing\\GitHub\\CashReceipt\\" + this.nameOfFile)) {
 
@@ -34,27 +34,28 @@ public class DataFromFile implements Data {
                 string = string + ch;
             }
 
-            String[] split = string.split(" ");
-            this.args = Arrays.copyOf(split, split.length);
+            this.args = string.split("\n");
 
+            for (int i = 0; i < args.length; i++) {
+                Integer numberOfCard = Integer.valueOf(args[i].substring(0, args[i].indexOf("-")));
+                Double percentsOfDiscount = Double.valueOf(args[i].substring(args[i].indexOf("-") + 1));
+
+                discount.addDiscount(new DiscountCard(percentsOfDiscount, numberOfCard));
+            }
 
 
         } catch (IOException | StringIndexOutOfBoundsException ex) {
             System.out.println(ex.toString());
 
-            System.out.println("incorrect name of file: " + nameOfFile);
+            System.out.println("incorrect name of file: " + this.nameOfFile);
         }
-    }
 
 
 
-    @Override
-    public Discount discountData() {
-                return discount;
-    }
 
-    @Override
-    public ProductFactory productsData() {
-        return productFactory;
+
+
+
+        return discount;
     }
 }

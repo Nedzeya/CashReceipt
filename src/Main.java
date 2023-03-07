@@ -1,6 +1,9 @@
+import DataDiscountAndProducts.DiscountBase;
+import DataDiscountAndProducts.DiscountCardBaseFromFile;
+import DataDiscountAndProducts.ProductBase;
+import DataDiscountAndProducts.ProductBaseFromFile;
 import basket.Basket;
 import basket.DiscountCardBasket;
-import data.*;
 import discount.Discount;
 import product.Product;
 import product.ProductFactory;
@@ -14,20 +17,25 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        args = new String[4];
-//        args[0] = "1-100";
-//        args[1] = "2-1";
-//        args[2] = "3-1";
-//        args[3] = "card-2";
+        args = new String[6];
+        args[0] = "products.txt";
+        args[1] = "2-1";
+        args[2] = "3-1";
+        args[3] = "card-2";
+       //  args[4] = "discountCards.txt";
+       // args[4] = "qqq";
+        args[4] = " ";
+        args[5] = "1-100";
+
 //
-        args = new String[3];
-        args[0] = "receiptInput.txt";
-        args[1] = "discountCards.txt";
-        args [2]= "products.txt";
+        // args = new String[3];
+        //   args[0] = "receiptInput.txt";
+//        args[1] = "discountCards.txt";
+//        args [2]= "products.txt";
 
 
         ProductFactory productFactory;
-       // Data data= new DataFromClass();;
+
         Basket basket = new Basket();
         ReceiptInput input;
         DiscountBase discountBase = new DiscountCardBaseFromFile();
@@ -35,13 +43,12 @@ public class Main {
         Discount discount;
 
 
-            int receiptInput = 0;
-            int dataFromFile = 0;
-            int dataDiscountCards = 0;
-            String nameOfFileReceiptInput = "";
-            String nameOfFileData = "";
-            String nameOfDiscountCardFile = "";
-            String nameOfProductsBase ="";
+        int receiptInput = 0;
+
+        String nameOfFileReceiptInput = "";
+
+        String nameOfDiscountCardFile = "";
+        String nameOfProductsBase ="";
 
         if (args.length > 0) {
             for (String s : args) {
@@ -49,12 +56,9 @@ public class Main {
                     receiptInput = 1;
                     nameOfFileReceiptInput = s;
                 }
-//                if (s.toLowerCase().contains("data")) {
-//                    dataFromFile = 1;
-//                    nameOfFileData = s;
-//                }
+
                 if (s.toLowerCase().contains("discountcards")) {
-                    dataDiscountCards = 1;
+
                     nameOfDiscountCardFile = s;
                 }
 
@@ -78,39 +82,39 @@ public class Main {
 //            }
 
 
-
         }
 
 
         discount = discountBase.readingFromFile(nameOfDiscountCardFile);
-       // discount = data.discountData();
-       // productFactory = data.productsData();
         productFactory = productBase.readingFromFile(nameOfProductsBase);
 
         for (int i = 0; i < args.length; i++) {
+            if (args[i] != null && !args[i].toLowerCase().contains(".txt")) {
 
-            if (args[i] != null && !args[i].toLowerCase().contains("card")) {
-                Integer idOfProduct = Integer.valueOf(args[i].substring(0, args[i].indexOf("-")));
-                Integer amountOfProduct = Integer.valueOf(args[i].substring(args[i].indexOf("-") + 1));
+                if (args[i].toLowerCase().contains("card-")) {
 
-                productRecognition(productFactory, basket, idOfProduct, amountOfProduct);
+                    Integer numberOfCard = Integer.valueOf(args[i].substring(5));
+                    //System.out.println("card we have " + args[i]);
+                    basket = cardRecognition(basket, discount, numberOfCard);
 
-            } else {
-                Integer numberOfCard = Integer.valueOf(args[i].substring(5));
-                //System.out.println("card we have " + args[i]);
-                basket = cardRecognition(basket,discount,numberOfCard);
+                } else {
+                    System.out.println("arg we are looking now " + args[i]);
+                    try {
+                        Integer idOfProduct = Integer.valueOf(args[i].substring(0, args[i].indexOf("-")));
+                        Integer amountOfProduct = Integer.valueOf(args[i].substring(args[i].indexOf("-") + 1));
 
+                        productRecognition(productFactory, basket, idOfProduct, amountOfProduct);
+                    } catch (StringIndexOutOfBoundsException e) {
+                        System.out.println("incorrect data information ");
+                    }
+                }
             }
         }
-
 
         Receipt receipt1 = new Receipt.ReceiptBuilder(basket)
                 .setIsPrintInConsole(true)
                 .setIsSaveInFile(false)
                 .build();
-
-
-
 
 
     }
@@ -144,12 +148,13 @@ public class Main {
             System.out.println("incorrect  product");
         }
     }
+
     static Basket cardRecognition (Basket basket,Discount discount, Integer numberOfCard){
         try {
 
             //System.out.println("number of card is " + numberOfCard);
             if (discount.getDiscountMap().containsKey(numberOfCard)) {
-               return new DiscountCardBasket(basket.getBasketMap(), numberOfCard);
+                return new DiscountCardBasket(basket.getBasketMap(), numberOfCard);
 
             }
         } catch (NumberFormatException | StringIndexOutOfBoundsException e) {

@@ -1,4 +1,4 @@
-package data;
+package DataDiscountAndProducts;
 
 import product.ProductFactory;
 
