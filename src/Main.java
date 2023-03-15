@@ -2,6 +2,8 @@ import DataDiscountAndProducts.DiscountBase;
 import DataDiscountAndProducts.DiscountCardBaseFromFile;
 import DataDiscountAndProducts.ProductBase;
 import DataDiscountAndProducts.ProductBaseFromFile;
+import actions.ActionSixProducts;
+import actions.Actions;
 import basket.Basket;
 import basket.DiscountCardBasket;
 import discount.Discount;
@@ -17,22 +19,21 @@ public class Main {
 
     public static void main(String[] args) {
 
-        args = new String[6];
-        args[0] = "products.txt";
-        args[1] = "2-1";
-        args[2] = "3-1";
-        args[3] = "card-2";
-       //  args[4] = "discountCards.txt";
-       // args[4] = "qqq";
-        args[4] = " ";
-        args[5] = "1-100";
+//        args = new String[6];
+//        args[0] = "products.txt";
+//        args[1] = "2-1";
+//        args[2] = "3-1";
+//        args[3] = "card-2";
+//       //  args[4] = "discountCards.txt";
+//       // args[4] = "qqq";
+//        args[4] = " ";
+//        args[5] = "1-100";
 
 //
         // args = new String[3];
         //   args[0] = "receiptInput.txt";
 //        args[1] = "discountCards.txt";
 //        args [2]= "products.txt";
-
 
         ProductFactory productFactory;
 
