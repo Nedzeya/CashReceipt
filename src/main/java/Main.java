@@ -2,8 +2,6 @@ import DataDiscountAndProducts.DiscountBase;
 import DataDiscountAndProducts.DiscountCardBaseFromFile;
 import DataDiscountAndProducts.ProductBase;
 import DataDiscountAndProducts.ProductBaseFromFile;
-import actions.ActionSixProducts;
-import actions.Actions;
 import basket.Basket;
 import basket.DiscountCardBasket;
 import discount.Discount;
@@ -30,17 +28,17 @@ public class Main {
 //        args[5] = "1-100";
 
 //
-        // args = new String[3];
-        //   args[0] = "receiptInput.txt";
-//        args[1] = "discountCards.txt";
-//        args [2]= "products.txt";
+         args = new String[3];
+           args[0] = "receiptInput.txt";
+        args[1] = "discountCards.txt";
+        args [2]= "products.txt";
 
         ProductFactory productFactory;
 
         Basket basket = new Basket();
         ReceiptInput input;
-        DiscountBase discountBase = new DiscountCardBaseFromFile();
-        ProductBase productBase = new ProductBaseFromFile();
+        DiscountBase discountBase =  new DiscountCardBaseFromFile();
+        ProductBase productBase =  new ProductBaseFromFile();
         Discount discount;
 
 
@@ -79,7 +77,7 @@ public class Main {
 //            }
 
 //            if(dataDiscountCards ==1) {
-//                discount = discountBase.readingFromFile(nameOfDiscountCardFile);
+//                main.java.discount = discountBase.readingFromFile(nameOfDiscountCardFile);
 //            }
 
 
@@ -124,29 +122,29 @@ public class Main {
 
 
         try {
-            // System.out.println("product we have " + args[i]);
+            // System.out.println("main.java.product we have " + args[i]);
 
-            // System.out.println("id of product is " + idOfProduct);
+            // System.out.println("id of main.java.product is " + idOfProduct);
 
-            // System.out.println("amount of product is " + amountOfProduct);
+            // System.out.println("amount of main.java.product is " + amountOfProduct);
             if (productFactory.getProductMap().containsKey(idOfProduct)) {
                 Product product = productFactory.getProductMap().get(idOfProduct);
-                //  System.out.println("product start amount in map " + product.getAmountOfProduct());
+                //  System.out.println("main.java.product start amount in map " + main.java.product.getAmountOfProduct());
                 if (product.getAmountOfProduct() == 0) {
 
                     product.setAmountOfProduct(amountOfProduct);
                 } else {
                     product.setAmountOfProduct(product.getAmountOfProduct() + amountOfProduct);
                 }
-                //   System.out.println("pr new amount in map " + product.getAmountOfProduct());
+                //   System.out.println("pr new amount in map " + main.java.product.getAmountOfProduct());
 
                 basket.addProduct(product);
-                // System.out.println("was added product  " + product);
+                // System.out.println("was added main.java.product  " + main.java.product);
             } else {
-                System.out.println("there are no such product ");
+                System.out.println("there are no such main.java.product ");
             }
         } catch (NumberFormatException | StringIndexOutOfBoundsException e) {
-            System.out.println("incorrect  product");
+            System.out.println("incorrect  main.java.product");
         }
     }
 

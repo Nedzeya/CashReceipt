@@ -60,7 +60,7 @@ public class ProductBaseFromFile implements ProductBase {
                 } else{
                     //System.out.println("no-");
                     priceOfProduct = Double.valueOf(args[i].substring(i2 + 1));
-                    //System.out.println("price of product " + priceOfProduct);
+                    //System.out.println("price of main.java.product " + priceOfProduct);
                     //System.out.println(" no name of action " + action);
                 }
 
@@ -72,7 +72,7 @@ public class ProductBaseFromFile implements ProductBase {
 
                     if (!action.trim().equals("")) {
 
-                      //  System.out.println("Action \"" + action.trim()+ "\" not found. Creating of simple product");
+                      //  System.out.println("Action \"" + action.trim()+ "\" not found. Creating of simple main.java.product");
                     }
                     productFactory.createSimpleProduct(idOfProduct, nameOfProduct, priceOfProduct);
                 }

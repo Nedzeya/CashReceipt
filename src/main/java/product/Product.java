@@ -1,13 +1,9 @@
 package product;
 
-import discount.Discount;
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 public abstract class Product {
-    //standard for all product
+    //standard for all main.java.product
     private int idOfProduct;
     private String nameOfProduct;
     private double priceOfProduct;
@@ -46,7 +42,7 @@ public abstract class Product {
         return amountOfProduct;
     }
 
-    //functions for all product types
+    //functions for all main.java.product types
 
 
     public boolean isEmpty() {
@@ -69,7 +65,7 @@ public abstract class Product {
         return 31 * Objects.hash(idOfProduct, nameOfProduct, priceOfProduct, amountOfProduct);
     }
 
-    // functions for all product which need to be overridden
+    // functions for all main.java.product which need to be overridden
     public abstract String toString();
 
     public abstract double totalPriceOfProduct();

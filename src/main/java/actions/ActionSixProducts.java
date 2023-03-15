@@ -1,7 +1,5 @@
 package actions;
 
-import actions.Actions;
-
 public class ActionSixProducts implements Actions {
     String nameOfAction = "Six products";
     double percents = 0.1;

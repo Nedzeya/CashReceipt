@@ -3,3 +3,5 @@ out/
 htmlReport/
 *.class
 *.txt
+.gradle/
+build/
