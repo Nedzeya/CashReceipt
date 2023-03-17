@@ -136,15 +136,15 @@ public class Main {
                 } else {
                     product.setAmountOfProduct(product.getAmountOfProduct() + amountOfProduct);
                 }
-                //   System.out.println("pr new amount in map " + main.java.product.getAmountOfProduct());
+                //   System.out.println("pr new amount in map " + product.getAmountOfProduct());
 
                 basket.addProduct(product);
-                // System.out.println("was added main.java.product  " + main.java.product);
+                // System.out.println("was added product  " + product);
             } else {
-                System.out.println("there are no such main.java.product ");
+                System.out.println("there are no such product ");
             }
         } catch (NumberFormatException | StringIndexOutOfBoundsException e) {
-            System.out.println("incorrect  main.java.product");
+            System.out.println("incorrect product");
         }
     }
 
