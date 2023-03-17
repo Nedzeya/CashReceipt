@@ -9,16 +9,19 @@ public class ActionSixProducts implements Actions {
 
     @Override
     public String getNameOfAction() {
+
         return this.nameOfAction;
     }
 
     @Override
     public double getPercents() {
+
         return this.percents;
     }
 
     @Override
     public int getCountOfProduct() {
+
         return this.countOfProduct;
     }
 }
