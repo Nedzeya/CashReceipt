@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductBaseFromFile implements ProductBase {
-    private String nameOfFile;
+    //private String nameOfFile;
     private String[] args;
     private ProductFactory productFactory = new ProductFactory();
 
@@ -17,24 +17,10 @@ public class ProductBaseFromFile implements ProductBase {
 
     @Override
     public ProductFactory readingFromFile(String filename) {
-        this.nameOfFile = filename;
+       // this.nameOfFile = filename;
 
-        try (FileReader reader = new FileReader("D:\\Programing\\GitHub\\CashReceipt\\" + this.nameOfFile)) {
-           // System.out.println("filename " +filename);
-
-            int c;
-            List<Character> characterList = new ArrayList<>();
-            while ((c = reader.read()) != -1) {
-                characterList.add((char) c);
-            }
-
-            String string = new String();
-            for (char ch : characterList) {
-                string = string + ch;
-            }
-
-            this.args = string.split("\n");
-        ////    System.out.println("args were created");
+        ReaderFromFile readerFromFile = new ReaderFromFile();
+        this.args = readerFromFile.readingFromFileIntoStringArray(filename);
 
             String action = "";
             Double priceOfProduct;
@@ -79,11 +65,7 @@ public class ProductBaseFromFile implements ProductBase {
             }
 
 
-        } catch (IOException | StringIndexOutOfBoundsException ex) {
-            System.out.println(ex.toString());
 
-            System.out.println("incorrect name of file: " + this.nameOfFile);
-        }
 
 
         return productFactory;

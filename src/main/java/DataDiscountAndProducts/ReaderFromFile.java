@@ -6,13 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReaderFromFile {
-   // private   String nameOfFile;
-   // private String [] args;
 
-  //  private List characterList ;
+    public String[] readingFromFileIntoStringArray(String nameOfFile) {
+        return fromListIntoStringArray(readingFromFileIntoList(nameOfFile));
+
+    }
 
 
-    private List <Character> readingFromFileIntoList (String fileName) {
+    private List<Character> readingFromFileIntoList(String fileName) {
         List<Character> characterList = new ArrayList<>();
         try (FileReader reader = new FileReader(fileName)) {
 //"D:\\Programing\\GitHub\\CashReceipt\\" +
@@ -29,9 +30,9 @@ public class ReaderFromFile {
 
         return characterList;
     }
-    //  this.characterList = new ArrayList<>(characterList);
 
-       private String [] fromListIntoStringArray (List list){
+
+    private String [] fromListIntoStringArray (List list){
 
             String string = new String();
             for (Object ch : list) {

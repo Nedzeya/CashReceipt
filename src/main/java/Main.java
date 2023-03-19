@@ -84,7 +84,7 @@ public class Main {
         }
 
 
-        discount = discountBase.readingFromFile(nameOfDiscountCardFile);
+        discount = discountBase.addingDiscountCardBaseFromFile(nameOfDiscountCardFile);
         productFactory = productBase.readingFromFile(nameOfProductsBase);
 
         for (int i = 0; i < args.length; i++) {
