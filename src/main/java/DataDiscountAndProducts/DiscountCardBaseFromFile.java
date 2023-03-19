@@ -3,20 +3,24 @@ package DataDiscountAndProducts;
 import discount.Discount;
 import discount.DiscountCard;
 
+import java.util.Arrays;
+
 public class DiscountCardBaseFromFile implements DiscountBase{
-    //private   String nameOfFile;
+
     private String [] args;
     private Discount discount = new DiscountCard();
 
 
-    public DiscountCardBaseFromFile() {
+    public DiscountCardBaseFromFile(String nameOfFile) {
+        ReaderFromFile readerFromFile = new ReaderFromFile();
+        this.args = readerFromFile.readingFromFileIntoStringArray(nameOfFile);
     }
 
-    @Override
-    public Discount addingDiscountCardBaseFromFile(String filename) {
 
-        ReaderFromFile readerFromFile = new ReaderFromFile();
-        this.args = readerFromFile.readingFromFileIntoStringArray(filename);
+
+    @Override
+    public Discount addingDiscountCardBaseFromFile() {
+
 
             for (int i = 0; i < args.length; i++) {
                 Integer numberOfCard = Integer.valueOf(args[i].substring(0, args[i].indexOf("-")));

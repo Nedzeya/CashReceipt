@@ -12,15 +12,13 @@ public class ProductBaseFromFile implements ProductBase {
     private String[] args;
     private ProductFactory productFactory = new ProductFactory();
 
-    public ProductBaseFromFile() {
+    public ProductBaseFromFile(String filename) {
+        ReaderFromFile readerFromFile = new ReaderFromFile();
+        this.args = readerFromFile.readingFromFileIntoStringArray(filename);
     }
 
     @Override
-    public ProductFactory readingFromFile(String filename) {
-       // this.nameOfFile = filename;
-
-        ReaderFromFile readerFromFile = new ReaderFromFile();
-        this.args = readerFromFile.readingFromFileIntoStringArray(filename);
+    public ProductFactory addingProductBaseFromFile() {
 
             String action = "";
             Double priceOfProduct;
@@ -63,11 +61,6 @@ public class ProductBaseFromFile implements ProductBase {
                     productFactory.createSimpleProduct(idOfProduct, nameOfProduct, priceOfProduct);
                 }
             }
-
-
-
-
-
         return productFactory;
     }
 }
