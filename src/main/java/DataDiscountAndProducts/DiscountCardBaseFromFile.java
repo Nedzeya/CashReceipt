@@ -3,32 +3,45 @@ package DataDiscountAndProducts;
 import discount.Discount;
 import discount.DiscountCard;
 
-import java.util.Arrays;
-
-public class DiscountCardBaseFromFile implements DiscountBase{
-
-    private String [] args;
+public class DiscountCardBaseFromFile implements DiscountBase {
+    private String nameOfFile;
+    private String[] args;
     private Discount discount = new DiscountCard();
 
-
-    public DiscountCardBaseFromFile(String nameOfFile) {
-        ReaderFromFile readerFromFile = new ReaderFromFile();
-        this.args = readerFromFile.readingFromFileIntoStringArray(nameOfFile);
+    public DiscountCardBaseFromFile() {
     }
 
 
+    public DiscountCardBaseFromFile(String nameOfFile) {
+        this.nameOfFile = nameOfFile;
+
+    }
+
+
+    private String[] readingDiscountCardBaseFromFile(String nameOfFile) {
+        ReaderFromFile readerFromFile = new ReaderFromFile();
+        return this.args = readerFromFile.readingFromFileIntoStringArray(nameOfFile);
+
+    }
+
+    FindingDataOfDiscountCardInArray findingDataOfDiscountCardInArray = new FindingDataOfDiscountCardInArray();
+
+       public void addingDiscountCardBase(Integer[] number, Double[] percents) {
+
+        for (int i = 0; i < this.args.length; i++) {
+            discount.addDiscount(new DiscountCard(percents[i], number[i]));
+        }
+
+    }
+
 
     @Override
-    public Discount addingDiscountCardBaseFromFile() {
+    public Discount creatingDiscountCardBaseFromFile() {
 
-
-            for (int i = 0; i < args.length; i++) {
-                Integer numberOfCard = Integer.valueOf(args[i].substring(0, args[i].indexOf("-")));
-                Double percentsOfDiscount = Double.valueOf(args[i].substring(args[i].indexOf("-") + 1));
-
-                discount.addDiscount(new DiscountCard(percentsOfDiscount, numberOfCard));
-            }
-
+        readingDiscountCardBaseFromFile(nameOfFile);
+        Integer[] number = findingDataOfDiscountCardInArray.findingNumbersOfCards(args);
+        Double[] percents = findingDataOfDiscountCardInArray.findingPercentsOfDiscount(args);
+        addingDiscountCardBase(number, percents);
         return discount;
     }
 }

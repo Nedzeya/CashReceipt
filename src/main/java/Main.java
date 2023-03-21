@@ -87,7 +87,7 @@ public class Main {
         DiscountBase discountBase =  new DiscountCardBaseFromFile(nameOfDiscountCardFile);
         ProductBase productBase =  new ProductBaseFromFile(nameOfProductsBase);
 
-        discount = discountBase.addingDiscountCardBaseFromFile();
+        discount = discountBase.creatingDiscountCardBaseFromFile();
         productFactory = productBase.addingProductBaseFromFile();
 
         for (int i = 0; i < args.length; i++) {
