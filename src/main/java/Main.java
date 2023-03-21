@@ -1,7 +1,7 @@
-import DataDiscountAndProducts.DiscountBase;
-import DataDiscountAndProducts.DiscountCardBaseFromFile;
-import DataDiscountAndProducts.ProductBase;
-import DataDiscountAndProducts.ProductBaseFromFile;
+import DataDiscountAndProducts.DataDiscount.DiscountBase;
+import DataDiscountAndProducts.DataDiscount.CreatingDiscountCardBaseFromFile;
+import DataDiscountAndProducts.DataProducts.ProductBase;
+import DataDiscountAndProducts.DataProducts.CreatingProductBaseFromFile;
 import basket.Basket;
 import basket.DiscountCardBasket;
 import discount.Discount;
@@ -84,11 +84,11 @@ public class Main {
 
 
         }
-        DiscountBase discountBase =  new DiscountCardBaseFromFile();
-        ProductBase productBase =  new ProductBaseFromFile(nameOfProductsBase);
+        DiscountBase discountBase =  new CreatingDiscountCardBaseFromFile();
+        ProductBase productBase =  new CreatingProductBaseFromFile();
 
         discount = discountBase.creatingDiscountCardBaseFromFile(nameOfDiscountCardFile);
-        productFactory = productBase.addingProductBaseFromFile();
+        productFactory = productBase.creatingProductBaseFromFile(nameOfProductsBase);
 
         for (int i = 0; i < args.length; i++) {
             if (args[i] != null && !args[i].toLowerCase().contains(".txt")) {

@@ -1,4 +1,4 @@
-package DataDiscountAndProducts;
+package DataDiscountAndProducts.DataDiscount;
 
 import discount.Discount;
 import discount.DiscountCard;

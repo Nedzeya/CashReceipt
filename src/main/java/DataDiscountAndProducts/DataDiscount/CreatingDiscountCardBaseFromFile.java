@@ -1,14 +1,15 @@
-package DataDiscountAndProducts;
+package DataDiscountAndProducts.DataDiscount;
 
+import DataDiscountAndProducts.ReaderFromFile;
 import discount.Discount;
 import discount.DiscountCard;
 
-public class DiscountCardBaseFromFile implements DiscountBase {
+public class CreatingDiscountCardBaseFromFile implements DiscountBase {
 
     private String[] args;
 
 
-    public DiscountCardBaseFromFile() {
+    public CreatingDiscountCardBaseFromFile() {
     }
 
 

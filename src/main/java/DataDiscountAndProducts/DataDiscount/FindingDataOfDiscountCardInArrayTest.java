@@ -1,4 +1,4 @@
-package DataDiscountAndProducts;
+package DataDiscountAndProducts.DataDiscount;
 
 import org.junit.jupiter.api.Test;
 

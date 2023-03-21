@@ -1,4 +1,4 @@
-package DataDiscountAndProducts;
+package DataDiscountAndProducts.DataDiscount;
 
 public class FindingDataOfDiscountCardInArray {
 
