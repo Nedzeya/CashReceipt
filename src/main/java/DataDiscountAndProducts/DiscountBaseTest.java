@@ -13,17 +13,17 @@ class DiscountBaseTest {
     class TestDiscountBase implements DiscountBase{
 
         @Override
-        public Discount creatingDiscountCardBaseFromFile() {
+        public Discount creatingDiscountCardBaseFromFile(String file) {
 
             return discount1;
         }
     }
 
     @Test
-    void TestAddingDiscountCardBaseFromFile() {
+    void TestCreatingDiscountCardBaseFromFile() {
         DiscountBase discountBase = new TestDiscountBase();
 
-        assertEquals(discount1,discountBase.creatingDiscountCardBaseFromFile());
+        assertEquals(discount1,discountBase.creatingDiscountCardBaseFromFile(file));
     }
 
 

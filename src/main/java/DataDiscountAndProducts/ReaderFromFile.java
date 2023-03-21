@@ -21,11 +21,9 @@ public class ReaderFromFile {
             while ((c = reader.read()) != -1) {
                 characterList.add((char) c);
             }
-        } catch (IOException | StringIndexOutOfBoundsException ex) {
+        } catch (IOException | StringIndexOutOfBoundsException | NullPointerException  ex) {
 
-            System.out.println(ex);
-
-            System.out.println("incorrect name of file: " + fileName);
+            System.out.println("incorrect name of file or file does not exist: " + fileName);
         }
 
         return characterList;
