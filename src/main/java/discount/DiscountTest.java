@@ -57,7 +57,7 @@ class DiscountTest {
     void testGetDiscountMap() {
         Map<Integer,Discount> discountMap= new HashMap<>();
         discountMap.put(1,discount);
-        
+
         discount.addDiscount(discount);
         assertEquals(discountMap.containsKey(1),  discount.getDiscountMap().containsKey(1));
     }
