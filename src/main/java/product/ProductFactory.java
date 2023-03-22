@@ -23,6 +23,7 @@ public class ProductFactory {
     }
 
     public Map<Integer, Product> getProductMap() {
+
         return productMap;
     }
 }
