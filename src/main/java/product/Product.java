@@ -16,8 +16,13 @@ public abstract class Product {
     public Product(int idOfProduct, String nameOfProduct, double priceOfProduct) {
         this.idOfProduct = idOfProduct;
         this.nameOfProduct = nameOfProduct;
-        this.priceOfProduct = priceOfProduct;
-
+        if (priceOfProduct >= 0) {
+            this.priceOfProduct = priceOfProduct;
+        } else {
+            System.out.println("A negative price: " + priceOfProduct+ " has been entered. The price of an product can only be positive. " +
+                    "It will be converted into a positive number. ");
+            this.priceOfProduct = priceOfProduct*-1;
+        }
     }
 
 // getters
@@ -35,7 +40,13 @@ public abstract class Product {
     }
 
     public void setAmountOfProduct(int amountOfProduct) {
-        this.amountOfProduct = amountOfProduct;
+        if (amountOfProduct >= 0) {
+            this.amountOfProduct = amountOfProduct;
+        }else{
+            System.out.println("A negative amount: " + amountOfProduct+ " has been entered. The amount of an product can only be positive. " +
+                    "It will be converted into a positive number. ");
+            this.amountOfProduct = amountOfProduct*-1;
+        }
     }
 
     public int getAmountOfProduct() {
