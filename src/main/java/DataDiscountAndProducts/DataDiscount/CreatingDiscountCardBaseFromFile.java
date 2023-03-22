@@ -1,6 +1,7 @@
 package DataDiscountAndProducts.DataDiscount;
 
-import DataDiscountAndProducts.ReaderFromFile;
+import readerFromFile.ReaderFromFileIntoStringArray;
+import readerFromFile.ReaderFromFileIntoStringArraySplitEnter;
 import discount.Discount;
 import discount.DiscountCard;
 
@@ -14,8 +15,8 @@ public class CreatingDiscountCardBaseFromFile implements DiscountBase {
 
 
     private String[] readingDiscountCardBaseFromFile(String nameOfFile) {
-        ReaderFromFile readerFromFile = new ReaderFromFile();
-        return this.args = readerFromFile.readingFromFileIntoStringArray(nameOfFile);
+        ReaderFromFileIntoStringArray readerFromFile = new ReaderFromFileIntoStringArraySplitEnter();
+        return this.args = readerFromFile.readFromFile(nameOfFile);
 
     }
 

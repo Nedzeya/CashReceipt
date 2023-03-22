@@ -1,6 +1,7 @@
 package DataDiscountAndProducts.DataProducts;
 
-import DataDiscountAndProducts.ReaderFromFile;
+import readerFromFile.ReaderFromFileIntoStringArray;
+import readerFromFile.ReaderFromFileIntoStringArraySplitEnter;
 import product.ProductFactory;
 
 public class CreatingProductBaseFromFile implements ProductBase {
@@ -13,8 +14,8 @@ public class CreatingProductBaseFromFile implements ProductBase {
     }
 
     private void readingProductBaseFromFile(String nameOfFile) {
-        ReaderFromFile readerFromFile = new ReaderFromFile();
-        this.args = readerFromFile.readingFromFileIntoStringArray(nameOfFile);
+        ReaderFromFileIntoStringArray readerFromFile = new ReaderFromFileIntoStringArraySplitEnter();
+        this.args = readerFromFile.readFromFile(nameOfFile);
     }
 
 FindingDataOfProductBaseInArray findingDataOfProductBaseInArray = new FindingDataOfProductBaseInArray();

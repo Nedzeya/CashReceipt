@@ -1,7 +1,8 @@
-import DataDiscountAndProducts.DataDiscount.DiscountBase;
 import DataDiscountAndProducts.DataDiscount.CreatingDiscountCardBaseFromFile;
-import DataDiscountAndProducts.DataProducts.ProductBase;
+import DataDiscountAndProducts.DataDiscount.DiscountBase;
 import DataDiscountAndProducts.DataProducts.CreatingProductBaseFromFile;
+import DataDiscountAndProducts.DataProducts.ProductBase;
+import readerFromFile.ReaderFromFileIntoStringArraySplitEnter;
 import basket.Basket;
 import basket.DiscountCardBasket;
 import discount.Discount;
@@ -28,27 +29,28 @@ public class Main {
 //        args[5] = "1-100";
 
 //
-         args = new String[3];
-           args[0] = "receiptInput.txt";
+        args = new String[3];
+        args[0] = "receiptInput.txt";
         args[1] = "discountCards.txt";
-        args [2]= "products.txt";
+        args[2] = "products.txt";
 
 
         String nameOfFileReceiptInput = "";
         String nameOfDiscountCardFile = "";
-        String nameOfProductsBase ="";
+        String nameOfProductsBase = "";
 
         ProductFactory productFactory;
 
         Basket basket = new Basket();
-        ReceiptInput input;
+
+         ReceiptInput input;
+
 
 
         Discount discount;
 
 
         int receiptInput = 0;
-
 
 
         if (args.length > 0) {
@@ -71,16 +73,12 @@ public class Main {
             //System.out.println("receiptInput - " + receiptInput + "\n dataFromFile - " + dataFromFile);
 
             if (receiptInput == 1) {
+
                 input = new ReceiptInputFromFile();
                 args = input.input(nameOfFileReceiptInput);
-            }
-//            if (dataFromFile == 1) {
-//                data = new DataFromFile(nameOfFileData);
-//            }
 
-//            if(dataDiscountCards ==1) {
-//                main.java.discount = discountBase.readingFromFile(nameOfDiscountCardFile);
-//            }
+            }
+
 
 
         }

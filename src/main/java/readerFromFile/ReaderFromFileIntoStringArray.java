@@ -1,19 +1,15 @@
-package DataDiscountAndProducts;
+package readerFromFile;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReaderFromFile {
+public interface ReaderFromFileIntoStringArray {
 
-    public String[] readingFromFileIntoStringArray(String nameOfFile) {
-        return fromListIntoStringArray(readingFromFileIntoList(nameOfFile));
+    String [] readFromFile (String fileName);
 
-    }
-
-
-    private List<Character> readingFromFileIntoList(String fileName) {
+   default List<Character> readingFromFileIntoList(String fileName) {
         List<Character> characterList = new ArrayList<>();
         try (FileReader reader = new FileReader(fileName)) {
 //"D:\\Programing\\GitHub\\CashReceipt\\" +
@@ -28,17 +24,5 @@ public class ReaderFromFile {
 
         return characterList;
     }
-
-
-    private String [] fromListIntoStringArray (List list){
-
-            String string = new String();
-            for (Object ch : list) {
-                string = string + ch;
-            }
-
-           return string.split("\n");
-    }
-
 
 }
