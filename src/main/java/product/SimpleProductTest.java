@@ -7,8 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class SimpleProductTest {
 
 
-
-
     @Test
     void testTotalPriceOfProduct() {
         Product product1 = new SimpleProduct(1, "D", 2);

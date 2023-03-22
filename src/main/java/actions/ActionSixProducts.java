@@ -2,7 +2,7 @@ package actions;
 
 public class ActionSixProducts implements Actions {
     String nameOfAction = "Six products";
-    double percents = 0.1;
+    double percents = 10;
      int countOfProduct = 6;
 
 

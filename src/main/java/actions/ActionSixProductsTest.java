@@ -14,7 +14,7 @@ class ActionSixProductsTest {
 
     @org.junit.jupiter.api.Test
     void testGetPercentsOfActionSixProducts() {
-        assertEquals(0.1,action.getPercents());
+        assertEquals(10,action.getPercents());
     }
 
     @org.junit.jupiter.api.Test
