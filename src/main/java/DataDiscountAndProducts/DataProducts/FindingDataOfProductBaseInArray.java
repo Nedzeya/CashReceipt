@@ -9,7 +9,7 @@ public class FindingDataOfProductBaseInArray {
     public Integer[] idsOfProduct(String[] args) {
         Integer[] idsOfProduct;
 
-        if (args!= null) {
+        if (args!= null && !args[0].isEmpty()) {
 
             idsOfProduct = new Integer[args.length];
             for (int i = 0; i < args.length; i++) {
@@ -27,7 +27,7 @@ public class FindingDataOfProductBaseInArray {
 
     public String[] namesOfProduct(String[] args) {
         String[] namesOfProduct;
-        if (args!= null) {
+        if (args!= null && !args[0].isEmpty()) {
         namesOfProduct = new String[args.length];
         for (int i = 0; i < args.length; i++) {
 
@@ -45,7 +45,7 @@ public class FindingDataOfProductBaseInArray {
 
     public Double[] pricesOfProduct(String[] args) {
         Double[] pricesOfProduct;
-        if (args!= null) {
+        if (args!= null && !args[0].isEmpty()) {
         pricesOfProduct = new Double[args.length];
         for (int i = 0; i < args.length; i++) {
             int i1 = args[i].indexOf("-");
@@ -75,7 +75,7 @@ public class FindingDataOfProductBaseInArray {
 
     public String [] gettingOfAction(String[] args) {
         String []actions;
-        if (args!= null) {
+        if (args!= null && !args[0].isEmpty()) {
         actions = new String[args.length];
 
         for (int i = 0; i < args.length; i++) {

@@ -34,7 +34,7 @@ public class CreatingDiscountCardBaseFromFile implements DiscountBase {
                 if (percents[i] != null && number[i] != null) {
                     discount.addDiscount(new DiscountCard(percents[i], number[i]));
                 } else {
-                    System.out.println("Null discount base was created");
+                    System.out.println(" discount cards base without data was created");
                 }
             }
             return discount;

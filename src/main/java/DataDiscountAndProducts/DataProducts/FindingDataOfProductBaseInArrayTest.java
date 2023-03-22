@@ -8,7 +8,7 @@ class FindingDataOfProductBaseInArrayTest {
     FindingDataOfProductBaseInArray findingDataOfProductBaseInArray = new FindingDataOfProductBaseInArray();
 
     @Test
-    void TestIdsOfProductInFullArray() {
+    void testIdsOfProductInFullArray() {
         String[] args = {"1-Nice-100-SixProducts",
                 "2-Cool-200-SixProducts",
                 "3-Good-130-OneProduct",
@@ -21,7 +21,7 @@ class FindingDataOfProductBaseInArrayTest {
     }
 
     @Test
-    void TestIdsOfProductInEmptyArray() {
+    void testIdsOfProductInEmptyArray() {
         String[] args = {};
 
         for (int i = 0; i < args.length; i++) {
@@ -30,13 +30,13 @@ class FindingDataOfProductBaseInArrayTest {
     }
 
     @Test
-    void TestIdsOfProductInNullArray() {
+    void testIdsOfProductInNullArray() {
         String[] args = null;
         assertEquals(null, findingDataOfProductBaseInArray.idsOfProduct(args));
     }
 
     @Test
-    void TestNamesOfProductInFullArray() {
+    void testNamesOfProductInFullArray() {
         String[] args = {"1-Nice-100-SixProducts",
                 "2-Cool-200-SixProducts",
                 "3-Good-130-OneProduct",
@@ -50,18 +50,18 @@ class FindingDataOfProductBaseInArrayTest {
     }
 
     @Test
-    void TestNamesOfProductInEmptyArray() {
+    void testNamesOfProductInEmptyArray() {
         String[] args = {};
             assertEquals(0, findingDataOfProductBaseInArray.namesOfProduct(args).length);
     }
 
     @Test
-    void TestNamesOfProductInNullArray() {
+    void testNamesOfProductInNullArray() {
         String[] args = null;
         assertEquals(null, findingDataOfProductBaseInArray.namesOfProduct(args));
     }
     @Test
-    void TestPricesOfProductInFullArray() {
+    void testPricesOfProductInFullArray() {
         String[] args = {"1-Nice-100-SixProducts",
                 "2-Cool-200-SixProducts",
                 "3-Good-130-OneProduct",
@@ -74,17 +74,17 @@ class FindingDataOfProductBaseInArrayTest {
     }
 
     @Test
-    void TestPricesOfProductInEmptyArray() {
+    void testPricesOfProductInEmptyArray() {
         String[] args = {};
                    assertEquals(0, findingDataOfProductBaseInArray.pricesOfProduct(args).length);
             }
     @Test
-    void TestPricesOfProductInNullArray() {
+    void testPricesOfProductInNullArray() {
         String[] args = null;
         assertEquals(null, findingDataOfProductBaseInArray.pricesOfProduct(args));
     }
     @Test
-    void TestGettingOfActionInFullArray() {
+    void testGettingOfActionInFullArray() {
         String[] args = {"1-Nice-100-SixProducts",
                 "2-Cool-200-SixProducts",
                 "3-Good-130-OneProduct",
@@ -97,12 +97,12 @@ class FindingDataOfProductBaseInArrayTest {
     }
 
     @Test
-    void TestGettingOfActionInEmptyArray() {
+    void testGettingOfActionInEmptyArray() {
         String[] args = {};
             assertEquals(0, findingDataOfProductBaseInArray.gettingOfAction(args).length);
         }
     @Test
-    void TestGettingOfActionInNullArray() {
+    void testGettingOfActionInNullArray() {
         String[] args = null;
         assertEquals(null, findingDataOfProductBaseInArray.gettingOfAction(args));
     }
