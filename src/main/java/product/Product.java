@@ -3,7 +3,7 @@ package product;
 import java.util.Objects;
 
 public abstract class Product {
-    //standard for all main.java.product
+    //standard for all product
     private int idOfProduct;
     private String nameOfProduct;
     private double priceOfProduct;
@@ -43,7 +43,8 @@ public abstract class Product {
         if (amountOfProduct >= 0) {
             this.amountOfProduct = amountOfProduct;
         }else{
-            System.out.println("A negative amount: " + amountOfProduct+ " has been entered. The amount of an product can only be positive. " +
+            System.out.println("A negative amount: " + amountOfProduct+ " has been entered. " +
+                    "The amount of an product can only be positive. " +
                     "It will be converted into a positive number. ");
             this.amountOfProduct = amountOfProduct*-1;
         }
@@ -53,12 +54,10 @@ public abstract class Product {
         return amountOfProduct;
     }
 
-    //functions for all main.java.product types
+    //functions for all product types
 
 
-    public boolean isEmpty() {
-        return nameOfProduct.isBlank() || amountOfProduct == 0;
-    }
+
 
 
     @Override
