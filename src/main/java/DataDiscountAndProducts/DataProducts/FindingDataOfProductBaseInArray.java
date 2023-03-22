@@ -9,18 +9,25 @@ public class FindingDataOfProductBaseInArray {
     public Integer[] idsOfProduct(String[] args) {
         Integer[] idsOfProduct;
 
-        idsOfProduct = new Integer[args.length];
-        for (int i = 0; i < args.length; i++) {
+        if (args!= null) {
 
-            int i1 = args[i].indexOf("-");
-            idsOfProduct[i] = Integer.valueOf(args[i].substring(0, i1));
+            idsOfProduct = new Integer[args.length];
+            for (int i = 0; i < args.length; i++) {
+
+                int i1 = args[i].indexOf("-");
+                idsOfProduct[i] = Integer.valueOf(args[i].substring(0, i1));
+            }
+            return idsOfProduct;
+        } else {
+            System.out.println("Array of IDs of Products is null");
+            return null;
         }
-        return idsOfProduct;
+
     }
 
     public String[] namesOfProduct(String[] args) {
         String[] namesOfProduct;
-
+        if (args!= null) {
         namesOfProduct = new String[args.length];
         for (int i = 0; i < args.length; i++) {
 
@@ -29,11 +36,16 @@ public class FindingDataOfProductBaseInArray {
             namesOfProduct[i] = args[i].substring(i1 + 1, i2);
         }
         return namesOfProduct;
+        } else {
+            System.out.println("Array of names of products is null");
+            return null;
+        }
+
     }
 
     public Double[] pricesOfProduct(String[] args) {
         Double[] pricesOfProduct;
-
+        if (args!= null) {
         pricesOfProduct = new Double[args.length];
         for (int i = 0; i < args.length; i++) {
             int i1 = args[i].indexOf("-");
@@ -54,21 +66,34 @@ public class FindingDataOfProductBaseInArray {
 
         }
         return pricesOfProduct;
+        } else {
+            System.out.println("Array of prices of products is null");
+            return null;
+        }
     }
 
 
-    public String gettingOfAction(String[] args) {
-        String action = "";
+    public String [] gettingOfAction(String[] args) {
+        String []actions;
+        if (args!= null) {
+        actions = new String[args.length];
+
         for (int i = 0; i < args.length; i++) {
             int i1 = args[i].indexOf("-");
             int i2 = args[i].indexOf("-", i1 + 1);
             int i3 = args[i].indexOf("-", i2 + 1);
 
             if (i3 > -1) {
-                action = args[i].substring(i3 + 1);
+                actions[i] = args[i].substring(i3 + 1);
+            } else {
+                actions[i] = "";
             }
         }
-        return action;
+        return actions;
+        } else {
+            System.out.println("Array of actions of products is null");
+            return null;
+        }
     }
 
 }

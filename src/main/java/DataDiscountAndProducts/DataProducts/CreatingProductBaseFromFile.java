@@ -27,19 +27,19 @@ FindingDataOfProductBaseInArray findingDataOfProductBaseInArray = new FindingDat
         Integer [] idsOfProducts = findingDataOfProductBaseInArray.idsOfProduct(args);
         String [] namesOfProducts = findingDataOfProductBaseInArray.namesOfProduct(args);
         Double [] pricesOfProducts = findingDataOfProductBaseInArray.pricesOfProduct(args);
-        String action = findingDataOfProductBaseInArray.gettingOfAction(args);
+        String [] action = findingDataOfProductBaseInArray.gettingOfAction(args);
 
         ProductFactory productFactory = new ProductFactory();
 
         for (int i = 0; i < args.length; i++) {
 
-            if (action.toLowerCase().contains("sixproducts")) {
+            if (action[i].toLowerCase().contains("sixproducts")) {
                 //System.out.println("creating action pr");
                 productFactory.createActionSixProductsProduct(idsOfProducts[i], namesOfProducts[i], pricesOfProducts[i]);
             } else {
                 //System.out.println("creating simple pr");
 
-                if (!action.trim().equals("")) {
+                if (!action[i].trim().equals("")) {
 
                     //  System.out.println("Action \"" + action.trim()+ "\" not found. Creating of simple main.java.product");
                 }
