@@ -12,8 +12,14 @@ public class DiscountCard implements Discount {
     }
 
     public DiscountCard(double percentsOfDiscount, int numberOfDiscount) {
-        this.percentsOfDiscount = percentsOfDiscount;
-        this.numberOfDiscount = numberOfDiscount;
+        if (percentsOfDiscount >=0 && numberOfDiscount >=0) {
+            this.percentsOfDiscount = percentsOfDiscount;
+            this.numberOfDiscount = numberOfDiscount;
+        } else {
+            System.out.println("Was entered a negative number. There are can be only positive numbers. It will be converted into positive");
+            this.percentsOfDiscount = percentsOfDiscount * -1;
+            this.numberOfDiscount = numberOfDiscount * -1;
+        }
     }
 
     @Override
