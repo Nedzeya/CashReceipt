@@ -17,6 +17,7 @@ public interface Discount {
    }
 
    default Map <Integer,Discount> getDiscountMap (){
+
        return discountMap;
    }
 
