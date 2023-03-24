@@ -13,6 +13,19 @@ public class Receipt {
     private ReceiptOutput output;
 
 
+    // for UTests////////////////////////
+    public Receipt() {
+    }
+
+    public void setHeardOfReceipt(HeardOfReceipt heardOfReceipt) {
+        this.heardOfReceipt = heardOfReceipt;
+    }
+
+    public void setBasket(Basket basket) {
+        this.basket = basket;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
     private Receipt(ReceiptBuilder builder) {
         this.heardOfReceipt = builder.heardOfReceipt;
         this.basket = builder.basket;
