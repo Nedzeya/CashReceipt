@@ -13,9 +13,6 @@ class ReceiptTest {
     @Test
     void testGetHeardOfReceipt() {
 
-        // установить ожидаемое значение для heardOfReceipt
-
-
         receipt.setHeardOfReceipt(expectedHeardOfReceipt);
 
         HeardOfReceipt actualHeardOfReceipt = receipt.getHeardOfReceipt();

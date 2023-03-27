@@ -1,7 +1,18 @@
-apply plugin: 'java'
-apply plugin: 'application'
-apply plugin: 'eclipse'
+//apply plugin: 'java'
+//apply plugin: 'application'
+//apply plugin: 'eclipse'
 
+plugins{
+    id 'java'
+    id 'application'
+    id 'eclipse'
+    id 'jacoco'
+}
+
+jacoco {
+    toolVersion = "0.8.8"
+    reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir')
+}
 
 
 mainClassName = 'Main'
@@ -27,11 +38,34 @@ dependencies {
 
 }
 test {
+    finalizedBy jacocoTestReport // report is always generated after tests run
+
     useJUnitPlatform()
 
     maxHeapSize = '1G'
 
     testLogging {
         events "passed"
+    }
+}
+
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+//    reports {
+//        xml.required = false
+//        csv.required = false
+//        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+//    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.7
+            }
+        }
+
+
     }
 }

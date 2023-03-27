@@ -13,6 +13,7 @@ Actions action1 = new ActionSixProducts();
 
     @Test
     void testGetAction() {
+
         ActionProduct product = new ActionProduct(1,"nameOfProduct",100,action );
         assertEquals(action, product.getAction());
     }
