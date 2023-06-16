@@ -29,11 +29,11 @@ public class Main {
 //        args[5] = "1-100";
 
 //
-        args = new String[3];
+/*        args = new String[3];
         args[0] = "receiptInput.txt";
         args[1] = "discountCards.txt";
         args[2] = "products.txt";
-
+*/
 
         String nameOfFileReceiptInput = "";
         String nameOfDiscountCardFile = "";
