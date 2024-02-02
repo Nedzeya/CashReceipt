@@ -1,7 +1,7 @@
 package basket;
 
-import discount.Discount;
-import product.Product;
+import com.klachkova.cashReceipt.discount.Discount;
+import com.klachkova.cashReceipt.product.Product;
 
 import java.util.Map;
 

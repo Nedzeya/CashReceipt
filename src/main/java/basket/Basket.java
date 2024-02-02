@@ -1,6 +1,6 @@
 package basket;
 
-import product.Product;
+import com.klachkova.cashReceipt.product.Product;
 
 import java.util.HashMap;
 import java.util.Map;
