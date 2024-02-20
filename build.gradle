@@ -1,8 +1,4 @@
-//apply plugin: 'java'
-//apply plugin: 'application'
-//apply plugin: 'eclipse'
-
-plugins{
+plugins {
     id 'java'
     id 'application'
     id 'eclipse'
@@ -24,7 +20,7 @@ repositories {
 
 jar {
     archiveBaseName = 'gs-gradle'
-    archiveVersion =  '0.1.0'
+    archiveVersion = '0.1.0'
 }
 
 sourceCompatibility = 1.8
@@ -51,11 +47,6 @@ test {
 
 jacocoTestReport {
     dependsOn test // tests are required to run before generating the report
-//    reports {
-//        xml.required = false
-//        csv.required = false
-//        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
-//    }
 }
 
 jacocoTestCoverageVerification {

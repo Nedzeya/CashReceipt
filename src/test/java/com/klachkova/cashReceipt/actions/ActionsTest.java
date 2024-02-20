@@ -2,6 +2,8 @@ package com.klachkova.cashReceipt.actions;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class ActionsTest {
 
 
@@ -29,19 +31,19 @@ class ActionsTest {
     @Test
     void testGetNameOfAction() {
         Actions action = new TestActionTest();
-assertEquals("name",action.getNameOfAction());
+        assertEquals("name", action.getNameOfAction());
 
     }
 
     @Test
     void getPercents() {
         Actions action = new TestActionTest();
-        assertEquals(10,action.getPercents());
+        assertEquals(10, action.getPercents());
     }
 
     @Test
     void getCountOfProduct() {
         Actions action = new TestActionTest();
-        assertEquals(3,action.getCountOfProduct());
+        assertEquals(3, action.getCountOfProduct());
     }
 }

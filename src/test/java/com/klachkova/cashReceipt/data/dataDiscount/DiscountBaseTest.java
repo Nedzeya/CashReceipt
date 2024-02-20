@@ -4,6 +4,8 @@ import com.klachkova.cashReceipt.discount.Discount;
 import com.klachkova.cashReceipt.discount.DiscountCard;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class DiscountBaseTest {
     Discount discount1 = new DiscountCard();
     String file;

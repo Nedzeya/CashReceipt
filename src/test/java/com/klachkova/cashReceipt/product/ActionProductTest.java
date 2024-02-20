@@ -4,6 +4,8 @@ import com.klachkova.cashReceipt.actions.ActionSixProducts;
 import com.klachkova.cashReceipt.actions.Actions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class ActionProductTest {
 Actions action = new ActionSixProducts();
 Actions action1 = new ActionSixProducts();
