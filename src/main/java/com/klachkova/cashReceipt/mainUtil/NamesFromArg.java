@@ -4,7 +4,7 @@ import com.klachkova.cashReceipt.receipt.input.ReceiptInput;
 import com.klachkova.cashReceipt.receipt.input.ReceiptInputFromFile;
 
 public class NamesFromArg {
-    String[] args;
+    private String[] args;
     private String nameOfFileReceiptInput = "";
     private String nameOfDiscountCardFile = "";
     private String nameOfProductsBase = "";
@@ -19,15 +19,17 @@ public class NamesFromArg {
     public void takeNamesFromArgs () {
 
         for (String s : args) {
-            if (s.toLowerCase().contains("receiptinput")) {
-                receiptInput = 1;
-                nameOfFileReceiptInput = s;
-            }
-            if (s.toLowerCase().contains("discountcards")) {
-                nameOfDiscountCardFile = s;
-            }
-            if (s.toLowerCase().contains("products")) {
-                nameOfProductsBase = s;
+            if (s!=null) {
+                if (s.toLowerCase().contains("receiptinput")) {
+                    receiptInput = 1;
+                    nameOfFileReceiptInput = s;
+                }
+                if (s.toLowerCase().contains("discountcards")) {
+                    nameOfDiscountCardFile = s;
+                }
+                if (s.toLowerCase().contains("products")) {
+                    nameOfProductsBase = s;
+                }
             }
         }
 
