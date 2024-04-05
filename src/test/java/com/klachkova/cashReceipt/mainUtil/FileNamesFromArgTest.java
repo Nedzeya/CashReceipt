@@ -3,12 +3,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class NamesFromArgTest {
-    NamesFromArg names;
+public class FileNamesFromArgTest {
+    FileNamesFromArg names;
 
     @Test
     void testTakeNamesFromArgsRDPLowerCase() {
-        names = new NamesFromArg(new String[]{"receiptinput", "discountcards", "products"});
+        names = new FileNamesFromArg(new String[]{"receiptinput", "discountcards", "products"});
         names.takeNamesFromArgs();
         assertEquals("receiptinput", names.getNameOfFileReceiptInput());
         assertEquals("discountcards", names.getNameOfDiscountCardFile());
@@ -17,7 +17,7 @@ public class NamesFromArgTest {
     }
     @Test
     void testTakeNamesFromArgsRDPDifCase() {
-        names = new NamesFromArg(new String[]{"RECEIPTINPUT", "diScounTCards", "products"});
+        names = new FileNamesFromArg(new String[]{"RECEIPTINPUT", "diScounTCards", "products"});
         names.takeNamesFromArgs();
         assertEquals("RECEIPTINPUT", names.getNameOfFileReceiptInput());
         assertEquals("diScounTCards", names.getNameOfDiscountCardFile());
@@ -27,7 +27,7 @@ public class NamesFromArgTest {
 
     @Test
     void testTakeNamesFromArgsRDPDifCaseExtraLetters() {
-        names = new NamesFromArg(new String[]{"RECEIPTINPUTq", "diScounTCardswer", "prodALLOURucts"});
+        names = new FileNamesFromArg(new String[]{"RECEIPTINPUTq", "diScounTCardswer", "prodALLOURucts"});
         names.takeNamesFromArgs();
         assertEquals("RECEIPTINPUTq", names.getNameOfFileReceiptInput());
         assertEquals("diScounTCardswer", names.getNameOfDiscountCardFile());
@@ -37,7 +37,7 @@ public class NamesFromArgTest {
 
     @Test
     void testTakeNamesFromArgsDP() {
-        names = new NamesFromArg(new String[]{"diScounTCardswer", "prodALLOURucts"});
+        names = new FileNamesFromArg(new String[]{"diScounTCardswer", "prodALLOURucts"});
         names.takeNamesFromArgs();
         assertEquals("", names.getNameOfFileReceiptInput());
         assertEquals("diScounTCardswer", names.getNameOfDiscountCardFile());
@@ -46,7 +46,7 @@ public class NamesFromArgTest {
     }
     @Test
     void testTakeNamesFromArgsOnlyProducts() {
-        names = new NamesFromArg(new String[]{ "products"});
+        names = new FileNamesFromArg(new String[]{ "products"});
         names.takeNamesFromArgs();
         assertEquals("", names.getNameOfFileReceiptInput());
         assertEquals("", names.getNameOfDiscountCardFile());
@@ -55,7 +55,7 @@ public class NamesFromArgTest {
     }
     @Test
     void testTakeNamesFromArgsEmpty() {
-        names = new NamesFromArg(new String[]{});
+        names = new FileNamesFromArg(new String[]{});
         names.takeNamesFromArgs();
         assertEquals("", names.getNameOfFileReceiptInput());
         assertEquals("", names.getNameOfDiscountCardFile());
@@ -65,7 +65,7 @@ public class NamesFromArgTest {
 
     @Test
     void testTakeNamesFromArgsInappropriateWords() {
-        names = new NamesFromArg(new String[]{"inappropriate", "irrelevant","misplaced"});
+        names = new FileNamesFromArg(new String[]{"inappropriate", "irrelevant","misplaced"});
         names.takeNamesFromArgs();
         assertEquals("", names.getNameOfFileReceiptInput());
         assertEquals("", names.getNameOfDiscountCardFile());
@@ -75,7 +75,7 @@ public class NamesFromArgTest {
 
     @Test
     void testTakeNamesFromArgsNumbers() {
-        names = new NamesFromArg(new String[]{"1", "2","3"});
+        names = new FileNamesFromArg(new String[]{"1", "2","3"});
         names.takeNamesFromArgs();
         assertEquals("", names.getNameOfFileReceiptInput());
         assertEquals("", names.getNameOfDiscountCardFile());
@@ -85,7 +85,7 @@ public class NamesFromArgTest {
 
     @Test
     void testTakeNamesFromArgsNull() {
-        names = new NamesFromArg(new String[]{null, " ","3"});
+        names = new FileNamesFromArg(new String[]{null, " ","3"});
         names.takeNamesFromArgs();
         assertEquals("", names.getNameOfFileReceiptInput());
         assertEquals("", names.getNameOfDiscountCardFile());

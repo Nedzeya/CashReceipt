@@ -3,7 +3,7 @@ package com.klachkova.cashReceipt.mainUtil;
 import com.klachkova.cashReceipt.receipt.input.ReceiptInput;
 import com.klachkova.cashReceipt.receipt.input.ReceiptInputFromFile;
 
-public class NamesFromArg {
+public class FileNamesFromArg {
     private String[] args;
     private String nameOfFileReceiptInput = "";
     private String nameOfDiscountCardFile = "";
@@ -12,7 +12,7 @@ public class NamesFromArg {
     private ReceiptInput input;
      private  int receiptInput = 0;
 
-    public NamesFromArg(String[] args) {
+    public FileNamesFromArg(String[] args) {
         this.args = args;
            }
 
