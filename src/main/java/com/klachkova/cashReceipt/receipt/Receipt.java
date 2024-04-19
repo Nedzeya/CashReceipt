@@ -1,6 +1,6 @@
 package com.klachkova.cashReceipt.receipt;
 
-import basket.Basket;
+import com.klachkova.cashReceipt.basket.Basket;
 import com.klachkova.cashReceipt.heardOfReceipt.HeardOfReceipt;
 import com.klachkova.cashReceipt.receipt.output.ReceiptOutput;
 import com.klachkova.cashReceipt.receipt.output.ReceiptOutputInFile;

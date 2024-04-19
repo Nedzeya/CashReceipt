@@ -1,6 +1,5 @@
 package com.klachkova.cashReceipt.basket;
 
-import basket.Basket;
 import org.junit.jupiter.api.Test;
 import com.klachkova.cashReceipt.product.Product;
 import com.klachkova.cashReceipt.product.ProductFactory;

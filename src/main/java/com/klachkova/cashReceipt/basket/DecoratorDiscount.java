@@ -1,4 +1,4 @@
-package basket;
+package com.klachkova.cashReceipt.basket;
 
 import com.klachkova.cashReceipt.discount.Discount;
 import com.klachkova.cashReceipt.product.Product;

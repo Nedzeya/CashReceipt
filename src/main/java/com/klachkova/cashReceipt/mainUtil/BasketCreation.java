@@ -1,17 +1,16 @@
 package com.klachkova.cashReceipt.mainUtil;
 
-import basket.Basket;
-import basket.DiscountCardBasket;
+import com.klachkova.cashReceipt.basket.Basket;
 import com.klachkova.cashReceipt.discount.Discount;
 import com.klachkova.cashReceipt.product.Product;
 import com.klachkova.cashReceipt.product.ProductFactory;
 
-public class BasketArgsRecognition {
+public class BasketCreation {
 
     private String[] args;
 
 
-    public BasketArgsRecognition(String[] args) {
+    public BasketCreation(String[] args) {
         this.args = args;
     }
 
@@ -25,7 +24,8 @@ public class BasketArgsRecognition {
                 if (args[i].toLowerCase().contains("card-")) {
 
                     Integer numberOfCard = Integer.valueOf(args[i].substring(5));
-                    basket = cardRecognition(basket, discount, numberOfCard);
+                    DiscountCardBasketRecognition cardRecognition = new DiscountCardBasketRecognition(basket, discount, numberOfCard);
+                    basket = cardRecognition.toRecogniseADiscountCard();
 
                 } else {
                     try {
@@ -60,16 +60,5 @@ public class BasketArgsRecognition {
         } catch (NumberFormatException | StringIndexOutOfBoundsException e) {
             System.out.println("incorrect product");
         }
-    }
-
-    private Basket cardRecognition(Basket basket, Discount discount, Integer numberOfCard) {
-        try {
-            if (discount.getDiscountMap().containsKey(numberOfCard)) {
-                return new DiscountCardBasket(basket.getBasketMap(), numberOfCard);
-            }
-        } catch (NumberFormatException | StringIndexOutOfBoundsException e) {
-            System.out.println("incorrect number of card");
-        }
-        return basket;
     }
 }

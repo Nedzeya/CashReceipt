@@ -1,4 +1,4 @@
-package basket;
+package com.klachkova.cashReceipt.basket;
 
 import com.klachkova.cashReceipt.product.Product;
 
@@ -12,9 +12,6 @@ public class Basket {
     public Basket() {
 
     }
-
-
-
    public double totalOfBasket() {
 
         Set<Integer> keys = getBasketMap().keySet();

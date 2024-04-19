@@ -4,9 +4,9 @@ import com.klachkova.cashReceipt.data.dataDiscount.CreatingDiscountCardBaseFromF
 import com.klachkova.cashReceipt.data.dataDiscount.DiscountBase;
 import com.klachkova.cashReceipt.data.dataProducts.CreatingProductBaseFromFile;
 import com.klachkova.cashReceipt.data.dataProducts.ProductBase;
-import basket.Basket;
+import com.klachkova.cashReceipt.basket.Basket;
 import com.klachkova.cashReceipt.discount.Discount;
-import com.klachkova.cashReceipt.mainUtil.BasketArgsRecognition;
+import com.klachkova.cashReceipt.mainUtil.BasketCreation;
 import com.klachkova.cashReceipt.mainUtil.FileNamesFromArg;
 import com.klachkova.cashReceipt.product.ProductFactory;
 import com.klachkova.cashReceipt.receipt.Receipt;
@@ -40,7 +40,7 @@ public class Main {
         productFactory = productBase.creatingProductBaseFromFile(nameOfProductsBase);
 
 
-        BasketArgsRecognition argsRecognition = new BasketArgsRecognition(args);
+        BasketCreation argsRecognition = new BasketCreation(args);
         basket = argsRecognition.creationOfBasket(discount, productFactory);
 
 

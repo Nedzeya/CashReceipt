@@ -1,4 +1,4 @@
-package basket;
+package com.klachkova.cashReceipt.basket;
 
 import com.klachkova.cashReceipt.discount.Discount;
 import com.klachkova.cashReceipt.product.Product;
@@ -6,12 +6,7 @@ import com.klachkova.cashReceipt.product.Product;
 import java.util.Map;
 
 public class DiscountCardBasket extends DecoratorDiscount{
-
-
     Discount discount;
-
-
-
 
     public DiscountCardBasket(Map<Integer, Product> basketMap, int numberOfDiscount) {
         super(basketMap);
@@ -56,5 +51,9 @@ public class DiscountCardBasket extends DecoratorDiscount{
     @Override
     public Map<Integer, Product> getBasketMap() {
         return super.basketMap;
+    }
+
+    public Discount getDiscount() {
+        return discount;
     }
 }

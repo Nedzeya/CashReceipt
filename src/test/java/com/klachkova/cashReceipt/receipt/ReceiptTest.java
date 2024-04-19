@@ -1,6 +1,6 @@
 package com.klachkova.cashReceipt.receipt;
 
-import basket.Basket;
+import com.klachkova.cashReceipt.basket.Basket;
 import com.klachkova.cashReceipt.heardOfReceipt.HeardOfReceipt;
 import org.junit.jupiter.api.Test;
 
